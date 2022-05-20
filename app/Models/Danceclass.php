@@ -17,7 +17,7 @@ class Danceclass extends Model
         'weekday_id',
         'hour_id',
         'rhythm_id',
-        'name_group',
+        'name_danceclass',
     ];
 
     public function people(): HasMany

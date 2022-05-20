@@ -13,7 +13,7 @@
                 <div class="row">
                     <div class=" offset-lg-4 col-lg-4 text-center my-4">
                         <h1> 
-                            Ritmos
+                            RITMOS
                         </h1>
                     </div>
                 </div>
@@ -35,7 +35,7 @@
                                     <div class="row mb-2">
                                         <div class="offset-lg-2 col-lg-8">
                                             <div class="form-group focused">
-                                                <label class=" mb-1 mt-2 form-control-label" for="rhythm">Nome da Turma</label>
+                                                <label class=" mb-1 mt-2 form-control-label" for="rhythm">Nome do Ritmo</label>
                                                 <input 
                                                 type="text" 
                                                 id="rhythm" 
@@ -67,17 +67,25 @@
                                 Cadastrados
                                 </h3>
                             </div>
-                            <table class="table offset-lg-2 col-lg-8 shadow">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">Ritmo</th>
-                                    </tr>
-                                </thead>
+                            <table class="table offset-lg-1 col-lg-10 border ">
+                                
                                 <tbody>
                                     
                                     @foreach ($rhythms as $rhythm)
                                         <tr>
                                             <th scope="row">{{$rhythm->rhythm}}</th>
+                                            <th scope="row">
+                                                <div class="">
+                                                    <form method="POST" name="form-delete" action="{{ route('ritmos.destroy', $rhythm->id) }}">
+                                                        @csrf()
+                                                        @method('delete')
+                                                        <button type="submit" class="btn btn-danger"
+                                                        onclick="return confirm('Tem certeza que deseja deletar?');">Deletar
+                                                        </button>
+                                                    </form>
+                                                </div>
+                                            
+                                            </th>
                                             {{-- <td><a href="{{route ('pessoas.show', $person->id)}}" class="btn btn-outline-dark">Editar</a> --}}
                                             </td>
                                         </tr>

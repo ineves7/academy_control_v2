@@ -18,7 +18,7 @@
 
                 <div class="card-body">
 
-                    <form method="POST" action="{{ route('groups.store') }}" autocomplete="off">
+                    <form method="POST" action="{{ route('turmas.store') }}" autocomplete="off">
                         @csrf() 
 
                         <div class="px-lg-2">
@@ -26,21 +26,16 @@
                             <div class="row mb-2">
                                 <div class="col-lg-4">
                                     <div class="form-group focused">
-                                        <label class=" mb-1 mt-2 form-control-label" for="name">Nome da Turma</label>
+                                        <label class=" mb-1 mt-2 form-control-label" for="name_danceclass">Nome da Turma</label>
                                         <input 
                                         type="text" 
-                                        id="name_group" 
+                                        id="name_danceclass" 
                                         class="form-control" 
-                                        name="name_group" 
+                                        name="name_danceclass" 
                                         placeholder="" 
                                         autofocus
                                         required
                                         />
-                                        <datalist id="browsers">
-                                            @foreach ($danceclasses as $danceclass)
-                                                
-                                            <option value="{{$danceclass->name_group}}">
-                                            @endforeach
                                     </div>
                                 </div>
                                 <div class="col-lg-4">
@@ -51,9 +46,11 @@
                                     name="rhythm_id" 
                                     id="rhythm_id">
 
-                                        <option value="1">Coletivo</option>
-                                        <option value="2">Particular</option>
-                                        <option value="3">Coletivo e Particular</option>
+                                        @foreach ($rhythms as $rhythm)
+                                                    
+                                            <option value="{{$rhythm->id}}">{{$rhythm->rhythm}}</option>
+
+                                        @endforeach
                                     </select>
                                 </div>
                                 <div class=" col-lg-4">
@@ -67,6 +64,7 @@
                                         <option value="1">Iniciante</option>
                                         <option value="2">Intermediário</option>
                                         <option value="3">Avançado</option>
+
                                     </select>
                                 </div>
                             </div>
@@ -77,8 +75,8 @@
                                     <select
 
                                     class="form-control" 
-                                    name="week_day"
-                                    id="week_day"
+                                    name="weekday_id"
+                                    id="weekday_id"
                                     required>
 
                                         <option></option>
@@ -91,46 +89,46 @@
                                     </select>
                                 </div>
                                 <div class="col-lg-4">
-                                    <label class="mb-1 mt-2 form-control-label" for="hour">Horário</label>
+                                    <label class="mb-1 mt-2 form-control-label" for="hour_id">Horário</label>
                                     <select
 
                                     class="form-control" 
-                                    name="hour"
-                                    id="hour"
+                                    name="hour_id"
+                                    id="hour_id"
                                     required>
 
                                         <option></option>
                                         <option value="1" >9:00</option>
-                                        <option value="9:30" >9:30</option>
-                                        <option value="10:00" >10:00</option>
-                                        <option value="10:30" >10:30</option>
-                                        <option value="11:00" >11:00</option>
-                                        <option value="11:30" >11:30</option>
-                                        <option value="12:00" >12:00</option>
-                                        <option value="12:30" >12:30</option>
-                                        <option value="13:00" >13:00</option>
-                                        <option value="13:30" >13:30</option>
-                                        <option value="14:00" >14:00</option>
-                                        <option value="14:30" >14:30</option>
-                                        <option value="15:00" >15:00</option>
-                                        <option value="15:30" >15:30</option>
-                                        <option value="16:00" >16:00</option>
-                                        <option value="16:30" >16:30</option>
-                                        <option value="17:00" >17:00</option>
-                                        <option value="17:30" >17:30</option>
-                                        <option value="18:00" >18:00</option>
-                                        <option value="18:30" >18:30</option>
-                                        <option value="19:00" >19:00</option>
-                                        <option value="19:30" >19:30</option>
-                                        <option value="20:00" >20:00</option>
-                                        <option value="20:30" >20:30</option>
-                                        <option value="21:00" >21:00</option>
+                                        <option value="2" >9:30</option>
+                                        <option value="3" >10:00</option>
+                                        <option value="4" >10:30</option>
+                                        <option value="5" >11:00</option>
+                                        <option value="6" >11:30</option>
+                                        <option value="7" >12:00</option>
+                                        <option value="8" >12:30</option>
+                                        <option value="9" >13:00</option>
+                                        <option value="10" >13:30</option>
+                                        <option value="11" >14:00</option>
+                                        <option value="12" >14:30</option>
+                                        <option value="13" >15:00</option>
+                                        <option value="14" >15:30</option>
+                                        <option value="15" >16:00</option>
+                                        <option value="16" >16:30</option>
+                                        <option value="17" >17:00</option>
+                                        <option value="18" >17:30</option>
+                                        <option value="19" >18:00</option>
+                                        <option value="20" >18:30</option>
+                                        <option value="21" >19:00</option>
+                                        <option value="22" >19:30</option>
+                                        <option value="23" >20:00</option>
+                                        <option value="24" >20:30</option>
+                                        <option value="25" >21:00</option>
                                     </select>
                                 </div>
                             </div>
 
                             <!-- Button -->
-                            <div class="row mb-2">
+                            <div class="b-2">
                                 <div class="offset-lg-3 col-lg-6">
                                     <button type="submit" class="btn btn-primary btn-lg col-12">Confirmar</button>
                                 </div>

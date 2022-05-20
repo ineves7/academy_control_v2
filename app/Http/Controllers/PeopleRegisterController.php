@@ -6,6 +6,7 @@ use App\Models\People;
 use App\Models\Address;
 use App\Models\Danceclass;
 use App\Models\Hour;
+use App\Models\Weekday;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 use Illuminate\Support\Facades\DB;
@@ -62,7 +63,7 @@ class PeopleRegisterController extends Controller
 
                 $people->monthly_payment = $request->monthly_payment;
 
-                $people->payday = $request->dia_mensalidade;
+                $people->payday = $request->payday;
 
             $people->save();
 
@@ -105,8 +106,9 @@ class PeopleRegisterController extends Controller
         try {
             $danceclasses = Danceclass::all();
             $hours = Hour::all();
+            $weekdays = Weekday::all();
     
-            return view('admin.people.create', compact('danceclasses', 'hours'));
+            return view('admin.people.create', compact('danceclasses', 'hours', 'weekdays'));
             
         }catch (\Throwable $throwable){
             dd($throwable);

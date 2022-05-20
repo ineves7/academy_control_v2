@@ -88,8 +88,8 @@
         </li>
 
         <!-- Nav Item - Danceclass Search -->
-        <li class="nav-item {{ Nav::isRoute('profile') }}">
-            <a class="nav-link" href="{{ route('profile') }}">
+        <li class="nav-item {{ Nav::isRoute('turmas.index') }}">
+            <a class="nav-link" href="{{ route('turmas.index') }}">
                 <i class="fas fa-fw fa-user"></i>
                 <span>Consultar Turma</span>
             </a>

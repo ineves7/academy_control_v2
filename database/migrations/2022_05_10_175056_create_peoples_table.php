@@ -17,10 +17,10 @@ return new class extends Migration
             $table->id();
             $table->foreignID('status_id')->constrained('statuses');
             $table->foreignId('modality_id')->constrained('modalities');
-            $table->foreignId('rhythm_id')->constrained('rhythms');
             $table->foreignId('genre_id')->constrained('genres');
             $table->foreignId('level_id')->constrained('levels');
             $table->foreignId('hour_id')->constrained('hours');
+            $table->foreignId('danceclass_id')->constrained('danceclasses');
             $table->foreignId('weekday_id')->constrained('weekdays');
             $table->string('name');
             $table->date('birthdate');

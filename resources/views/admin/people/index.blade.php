@@ -31,12 +31,12 @@
                             <tr>
                                 <th scope="row">{{$person->id}}</th>
                                 <td>{{$person->name}}</td>
-                                <td>{{$person->group->name_group}}</td>
-                                <td>{{$person->modality->modalidade}}</td>
-                                <td>{{$person->level->nivel}}</td>
-                                <td>{{$person->valor_mensalidade}}</td>
+                                <td>{{$person->danceclass->name_danceclass}}</td>
+                                <td>{{$person->modality->modality}}</td>
+                                <td>{{$person->level->level}}</td>
+                                <td>{{$person->monthly_payment}}</td>
                                 <td>{{$person->status->status}}</td>
-                                <td>{{$person->address->cidade}}</td>
+                                <td>{{$person->address->city}}</td>
                                 <td><a href="{{route ('pessoas.show', $person->id)}}" class="btn btn-outline-dark">Editar</a>
                                 </td>
                             </tr>

@@ -154,12 +154,11 @@
                                     id="weekday_id">
 
                                         <option></option>
-                                        <option value="1" >Segunda-Feira</option>
-                                        <option value="2" >Terça-Feira</option>
-                                        <option value="3" >Quarta-Feira</option>
-                                        <option value="4" >Quinta-Feira</option>
-                                        <option value="5" >Sexta-Feira</option>
-                                        <option value="6" >Sábado</option>
+
+                                        @foreach ($weekdays as $weekday)
+                                            <option value="{{$weekday->id}}">{{$weekday->weekday}}</option>
+                                        @endforeach
+
                                     </select>
                                 </div>
                                 <div class="col-lg-3">
@@ -207,15 +206,15 @@
                                     </select>
                                 </div>
                                 <div class="col-lg-2">
-                                    <label class=" mb-1 mt-2 form-control-label" for="group_id">Turma</label>
+                                    <label class=" mb-1 mt-2 form-control-label" for="danceclass_id">Turma</label>
                                     <select
 
                                     class="form-control" 
-                                    name="group_id" 
-                                    id="group_id">
+                                    name="danceclass_id" 
+                                    id="danceclass_id">
 
-                                    @foreach ($groups as $group)
-                                        <option value="{{$group->id}}">{{$group->name_group}}</option>
+                                    @foreach ($danceclasses as $danceclass)
+                                        <option value="{{$danceclass->id}}">{{$danceclass->name_danceclass}}</option>
                                     @endforeach
 
                                     </select>
@@ -250,14 +249,14 @@
                                     </select>
                                 </div>
                                 <div class="col-lg-4">
-                                    <label class=" mb-1 mt-2 form-control-label" for="data_de_nascimento">Data de Nasc.</label>
+                                    <label class=" mb-1 mt-2 form-control-label" for="birthdate">Data de Nasc.</label>
                                     <div class="input-group input-group-joined">
                                         <input 
 
                                         type="date"
-                                        id="data_de_nascimento" 
+                                        id="birthdate" 
                                         class="form-control" 
-                                        name="data_de_nascimento"
+                                        name="birthdate"
                                         />
                                         
                                     </div>
@@ -267,26 +266,26 @@
                             <div class="row">
                                 <div class="col-lg-7">
                                     <div class="form-group focused">
-                                        <label class=" mb-1 mt-2 form-control-label" for="cidade">Cidade</label>
+                                        <label class=" mb-1 mt-2 form-control-label" for="city">Cidade</label>
                                         <input 
 
                                         type="text"
-                                        id="cidade"
+                                        id="city"
                                         class="form-control"
-                                        name="cidade"
+                                        name="city"
                                         />
 
                                     </div>
                                 </div>
                                 <div class="col-lg-5">
                                     <div class="form-group focused">
-                                        <label class=" mb-1 mt-2 form-control-label" for="bairro">Bairro</label>
+                                        <label class=" mb-1 mt-2 form-control-label" for="district">Bairro</label>
                                         <input 
 
                                         type="text"
-                                        id="bairro"
+                                        id="district"
                                         class="form-control"
-                                        name="bairro"
+                                        name="district"
                                         />
 
                                     </div>
@@ -300,9 +299,9 @@
                                         <input 
 
                                         type="text"
-                                        id="rua"
+                                        id="street"
                                         class="form-control"
-                                        name="rua"
+                                        name="street"
                                         />
 
                                     </div>
@@ -313,24 +312,23 @@
                                         <input 
 
                                         type="text"
-                                        id="numero"
+                                        id="number"
                                         class="form-control"
-                                        name="numero"
+                                        name="number"
                                         />
 
                                     </div>
                                 </div>
                                 <div class="col-lg-5">
                                     <div class="form-group focused">
-                                        <label class=" mb-1 mt-2 form-control-label" for="telefone">Telefone</label>
+                                        <label class=" mb-1 mt-2 form-control-label" for="phone">Telefone</label>
                                         <input 
 
                                         type="enum"
                                         data-mask="(00) 00000-0000"
                                         class="form-control telefone" 
-                                        placeholder="Telefone" 
-                                        id="telefone" 
-                                        name="telefone"
+                                        id="phone" 
+                                        name="phone"
                                         />
 
                                     </div>
@@ -346,28 +344,28 @@
                             <div class="row mb-3 text-center">
                                 <div class="offset-lg-3 col-lg-3 ">
                                     <div class="form-group focused">
-                                        <label class=" mb-1 mt-2 form-control-label" for="dia">Dia</label>
+                                        <label class=" mb-1 mt-2 form-control-label" for="payday">Dia</label>
                                         <input 
 
                                         type="text"
-                                        id="dia_mensalidade"
+                                        id="payday"
                                         class="form-control"
                                         placeholder=""
-                                        name="dia_mensalidade"
+                                        name="payday"
                                         />
 
                                     </div>
                                 </div>
                                 <div class="col-lg-3">
                                     <div class="form-group focused">
-                                        <label class=" mb-1 mt-2 form-control-label" for="valor">Valor</label>
+                                        <label class=" mb-1 mt-2 form-control-label" for="monthly_payment">Valor</label>
                                         <input 
 
                                         type="enum"
-                                        id="valor_mensalidade"
+                                        id="monthly_payment"
                                         class="form-control"
                                         placeholder=""
-                                        name="valor_mensalidade"
+                                        name="monthly_payment"
                                         />
 
                                     </div>

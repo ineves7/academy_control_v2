@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Danceclass;
+use App\Models\Rhythm;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
@@ -43,7 +44,7 @@ class DanceclassController extends Controller
 
             $danceclasses->rhythm_id = $request->rhythm_id;
 
-            $danceclasses->name_group = $request->name_group;
+            $danceclasses->name_danceclass = $request->name_danceclass;
 
             $danceclasses->save();
 
@@ -68,8 +69,9 @@ class DanceclassController extends Controller
     {
         try {
             $danceclasses = Danceclass::all();
+            $rhythms = Rhythm::all();
     
-            return view('admin.danceclass.create', compact('danceclasses'));
+            return view('admin.danceclass.create', compact('danceclasses', 'rhythms'));
             
             
         }catch (\Throwable $throwable){
