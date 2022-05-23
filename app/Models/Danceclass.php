@@ -24,4 +24,6 @@ class Danceclass extends Model
     {
         return $this->hasMany(People::class, 'danceclass_id');
     }
+
+    
 }

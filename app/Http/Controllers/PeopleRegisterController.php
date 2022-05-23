@@ -6,6 +6,7 @@ use App\Models\People;
 use App\Models\Address;
 use App\Models\Danceclass;
 use App\Models\Hour;
+use App\Models\Schedule;
 use App\Models\Weekday;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
@@ -67,6 +68,7 @@ class PeopleRegisterController extends Controller
 
             $people->save();
 
+
             $address = new Address;
 
                 $address->people_id = $people->id;
@@ -81,7 +83,7 @@ class PeopleRegisterController extends Controller
 
             $address->save();
 
-            
+
 
             DB::commit();
             return redirect()->back();
@@ -92,8 +94,10 @@ class PeopleRegisterController extends Controller
 
         try {
             $person = People::find($person_id);
+            $danceclasses = Danceclass::all();
+            $hours = Hour::all();
             
-            return view ('admin.people.show', compact('person'));
+            return view ('admin.people.show', compact('person', 'danceclasses', 'hours'));
         }catch (\Throwable $throwable){
             dd($throwable);
             return redirect()->back()->withInput();
@@ -135,19 +139,19 @@ class PeopleRegisterController extends Controller
 
                 $person->level_id = $request->level_id;
 
-                $person->group_id = $request->group_id;
+                $person->danceclass_id = $request->danceclass_id;
 
                 $person->genre_id = $request->genre_id;
 
-                $person->data_de_nascimento = $request->data_de_nascimento; 
+                $person->birthdate = $request->birthdate; 
 
                 $person->status_id = $request->status_id;
 
-                $person->telefone = $request->telefone;
+                $person->phone = $request->phone;
 
-                $person->valor_mensalidade = $request->valor_mensalidade;
+                $person->monthly_payment = $request->monthly_payment;
 
-                $person->dia_mensalidade = $request->dia_mensalidade;
+                $person->payday = $request->payday;
 
                 $person->save();
 
@@ -156,13 +160,13 @@ class PeopleRegisterController extends Controller
 
             $address = Address::find($address_id);
 
-                $address->cidade = $request->cidade;
+                $address->city = $request->city;
 
-                $address->bairro = $request->bairro;
+                $address->district = $request->district;
 
-                $address->rua = $request->rua;
+                $address->street = $request->street;
 
-                $address->numero = $request->numero;
+                $address->number = $request->number;
 
             $address->save();
 

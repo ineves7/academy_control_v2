@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
 class People extends Model
 {
     use HasFactory;
+
     use SoftDeletes;
 
     protected $table = 'peoples';
@@ -24,10 +25,10 @@ class People extends Model
         'hour_id',
         'weekday_id',
         'name',
-        'data_de_nascimento',
-        'telefone',
-        'valor_mensalidade',
-        'dia_mensalidade'
+        'birthdate',
+        'phone',
+        'monthly_payment',
+        'payday'
     ];
 
     public function status(): BelongsTo

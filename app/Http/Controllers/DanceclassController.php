@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Danceclass;
+use App\Models\Hour;
+use App\Models\People;
 use App\Models\Rhythm;
+use App\Models\Weekday;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
@@ -18,8 +21,9 @@ class DanceclassController extends Controller
 
         try {
             $danceclasses = Danceclass::all();
+            $people = People::all();
     
-            return view('admin.danceclass.index', compact('danceclasses'));
+            return view('admin.danceclass.index', compact('danceclasses', 'people'));
             
             
         }catch (\Throwable $throwable){
@@ -70,8 +74,16 @@ class DanceclassController extends Controller
         try {
             $danceclasses = Danceclass::all();
             $rhythms = Rhythm::all();
+            $weekdays = Weekday::all();
+            $hours = Hour::all();
     
-            return view('admin.danceclass.create', compact('danceclasses', 'rhythms'));
+            return view('admin.danceclass.create', 
+                compact(
+                'danceclasses',
+                'rhythms', 
+                'weekdays',
+                'hours'
+            ));
             
             
         }catch (\Throwable $throwable){
