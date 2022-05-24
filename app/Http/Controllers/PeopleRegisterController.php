@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\People;
 use App\Models\Address;
 use App\Models\Danceclass;
+use App\Models\Genre;
 use App\Models\Hour;
+use App\Models\Level;
 use App\Models\Schedule;
 use App\Models\Weekday;
 use Illuminate\Http\Request;
@@ -58,10 +60,6 @@ class PeopleRegisterController extends Controller
 
                 $people->phone = $request->phone;
 
-                $people->hour_id = $request->hour_id;
-                
-                $people->weekday_id = $request->weekday_id;
-
                 $people->monthly_payment = $request->monthly_payment;
 
                 $people->payday = $request->payday;
@@ -83,6 +81,18 @@ class PeopleRegisterController extends Controller
 
             $address->save();
 
+
+            $schedule = new Schedule;
+
+                $schedule->people_id = $people->id;
+
+                $schedule->week_day = $request->week_day;
+
+                $schedule->start_time = $request->start_time;
+
+                $schedule->end_time = $request->end_time;
+
+            $schedule->save();
 
 
             DB::commit();
@@ -108,11 +118,11 @@ class PeopleRegisterController extends Controller
     {
 
         try {
-            $danceclasses = Danceclass::all();
-            $hours = Hour::all();
-            $weekdays = Weekday::all();
+
+            $levels = Level::all();
+            $genres = Genre::all();
     
-            return view('admin.people.create', compact('danceclasses', 'hours', 'weekdays'));
+            return view('admin.people.create', compact('levels', 'genres'));
             
         }catch (\Throwable $throwable){
             dd($throwable);

@@ -4,8 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\Danceclass;
 use App\Models\Hour;
+use App\Models\Level;
 use App\Models\People;
 use App\Models\Rhythm;
+use App\Models\Schedule;
+use App\Models\Week_day;
 use App\Models\Weekday;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -20,10 +23,8 @@ class DanceclassController extends Controller
         }*/
 
         try {
-            $danceclasses = Danceclass::all();
-            $people = People::all();
-    
-            return view('admin.danceclass.index', compact('danceclasses', 'people'));
+            $danceclasses = Danceclass::with('schedules')->get();
+            return view('admin.danceclass.index', compact('danceclasses'));
             
             
         }catch (\Throwable $throwable){
@@ -40,17 +41,28 @@ class DanceclassController extends Controller
 
             $danceclasses = new Danceclass;
 
-            $danceclasses->level_id = $request->level_id;
+                $danceclasses->level_id = $request->level_id;
 
-            $danceclasses->weekday_id = $request->weekday_id;
+                $danceclasses->rhythm_id = $request->rhythm_id;
 
-            $danceclasses->hour_id = $request->hour_id;
+                $danceclasses->name_danceclass = $request->name_danceclass;
 
-            $danceclasses->rhythm_id = $request->rhythm_id;
+                $danceclasses->private_class = $request->private_class;
 
-            $danceclasses->name_danceclass = $request->name_danceclass;
 
             $danceclasses->save();
+
+            $schedule = new Schedule();
+
+                $schedule->danceclass_id = $danceclasses->id;
+
+                $schedule->week_day = $request->week_day;
+
+                $schedule->start_time = $request->start_time;
+
+                $schedule->end_time = $request->end_time;
+
+            $schedule->save();
 
             DB::commit();
             return redirect()->back();
@@ -74,15 +86,17 @@ class DanceclassController extends Controller
         try {
             $danceclasses = Danceclass::all();
             $rhythms = Rhythm::all();
-            $weekdays = Weekday::all();
+            $week_days = Week_day::all();
             $hours = Hour::all();
+            $levels = Level::all();
     
             return view('admin.danceclass.create', 
                 compact(
                 'danceclasses',
-                'rhythms', 
-                'weekdays',
-                'hours'
+                'rhythms',
+                'week_days',
+                'hours',
+                'levels'
             ));
             
             

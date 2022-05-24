@@ -14,30 +14,21 @@
                 <table class="table">
                     <thead>
                         <tr>
-                            <th scope="col">Segunda</th>
-                            <th scope="col">Terça</th>
-                            <th scope="col">Grupo</th>
-                            <th scope="col">Modalidade</th>
-                            <th scope="col">Nivel</th>
-                            <th scope="col">Valor</th>
-                            <th scope="col">Status</th>
-                            <th scope="col">Cidade</th>
-                            <th scope="col">Sistema</th>
+                            <th scope="col">Turma</th>
+                            <th scope="col">Dias</th>
+                            <th scope="col">Hora Inicio</th>
+                            <th scope="col">Hora Fim</th>
                         </tr>
                     </thead>
                     <tbody>
                           
-                        @foreach ($people as $person)
+                        @foreach ($schedules as $schedule)
                             <tr>
-                                <th scope="row">{{$person->id}}</th>
-                                <td>{{$person->name}}</td>
-                                <td>{{$person->danceclass->name_danceclass}}</td>
-                                <td>{{$person->modality->modality}}</td>
-                                <td>{{$person->level->level}}</td>
-                                <td>{{$person->monthly_payment}}</td>
-                                <td>{{$person->status->status}}</td>
-                                <td>{{$person->address->city}}</td>
-                                <td><a href="{{route ('pessoas.show', $person->id)}}" class="btn btn-outline-dark">Editar</a>
+                                <th scope="row">{{$schedule->danceclass}}</th>
+                                <td>{{$schedule->week_day}}</td>
+                                <td>{{$schedule->start_time}}</td>
+                                <td>{{$schedule->end_time}}</td>
+                                {{-- <td><a href="{{route ('pessoas.show', $person->id)}}" class="btn btn-outline-dark">Editar</a> --}}
                                 </td>
                             </tr>
                         @endforeach

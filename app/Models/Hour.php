@@ -15,11 +15,6 @@ class Hour extends Model
     protected $fillable = [
         'hour'
     ];
-
-    public function people(): HasMany
-    {
-        return $this->hasMany(People::class, 'hour_id');
-    }
 }
 
 

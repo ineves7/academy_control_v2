@@ -11,12 +11,9 @@ class Schedule extends Model
 {
     use HasFactory;
 
-    use SoftDeletes;
-
-    protected $table = 'shcedules';
+    protected $table = 'schedules';
 
     protected $fillable = [
-        'people_id',
         'danceclass_id',
         'week_day',
         'start_time',
@@ -27,6 +24,4 @@ class Schedule extends Model
     {
         return $this->belongsTo(Danceclass::class, 'danceclass_id');
     }
-
-    
 }

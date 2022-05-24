@@ -16,10 +16,9 @@ return new class extends Migration
         Schema::create('danceclasses', function (Blueprint $table) {
             $table->id();
             $table->foreignId('level_id')->constrained('levels');
-            $table->foreignId('weekday_id')->constrained('weekdays');
-            $table->foreignId('hour_id')->constrained('hours');
             $table->foreignId('rhythm_id')->constrained('rhythms');
             $table->string('name_danceclass');
+            $table->boolean('private_class');
             $table->timestamps();
         });
     }
