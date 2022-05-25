@@ -11,6 +11,7 @@ use Spatie\Permission\Models\Role;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Hash;
 use App\Models\MatrialStatus;
+use App\Models\Status;
 use App\Models\User;
 use App\Models\Week_day;
 
@@ -166,6 +167,18 @@ class DefaultInserts extends Migration
         ];
         foreach ($genres as $genre) {
             Genre::firstOrCreate($genre);
+        }
+
+        $statuses = [
+            [
+                'status' => 'Ativo'
+            ],
+            [
+                'status' => 'Inativo'
+            ]
+        ];
+        foreach ($statuses as $status) {
+            Status::firstOrCreate($status);
         }
 
     }

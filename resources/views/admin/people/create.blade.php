@@ -40,7 +40,7 @@
                                     </div>
                                 </div>
                                 <div class="col-lg-4 ">
-                                    <label class=" mb-1 mt-2 form-control-label" for="status">Status</label>
+                                    <label class=" mb-1 mt-2 form-control-label" for="status_id">Status</label>
                                     <select
 
                                     class="form-control" 

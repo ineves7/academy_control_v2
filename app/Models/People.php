@@ -20,15 +20,12 @@ class People extends Model
 
     protected $fillable = [
         'status_id',
-        'modality_id',
         'danceclass_id',
         'genre_id',
         'level_id',
         'name',
         'birthdate',
         'phone',
-        'monthly_payment',
-        'payday'
     ];
 
     public function status(): BelongsTo

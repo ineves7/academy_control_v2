@@ -46,23 +46,15 @@ class PeopleRegisterController extends Controller
 
                 $people->name = $request->name; 
 
-                $people->modality_id = $request->modality_id;
-
                 $people->level_id = $request->level_id;
-
-                $people->danceclass_id = $request->danceclass_id;
 
                 $people->genre_id = $request->genre_id;
 
-                $people->birthdate = $request->birthdate; 
+                $people->birthdate = $request->birthdate;
 
                 $people->status_id = $request->status_id;
 
                 $people->phone = $request->phone;
-
-                $people->monthly_payment = $request->monthly_payment;
-
-                $people->payday = $request->payday;
 
             $people->save();
 
@@ -80,19 +72,6 @@ class PeopleRegisterController extends Controller
                 $address->number = $request->number;
 
             $address->save();
-
-
-            $schedule = new Schedule;
-
-                $schedule->people_id = $people->id;
-
-                $schedule->week_day = $request->week_day;
-
-                $schedule->start_time = $request->start_time;
-
-                $schedule->end_time = $request->end_time;
-
-            $schedule->save();
 
 
             DB::commit();
@@ -144,8 +123,6 @@ class PeopleRegisterController extends Controller
             $person = People::find($person_id);
 
                 $person->name = $request->name; 
-
-                $person->modality_id = $request->modality_id;
 
                 $person->level_id = $request->level_id;
 

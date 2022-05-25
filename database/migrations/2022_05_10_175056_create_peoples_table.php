@@ -16,15 +16,11 @@ return new class extends Migration
         Schema::create('peoples', function (Blueprint $table) {
             $table->id();
             $table->foreignID('status_id')->constrained('statuses');
-            $table->foreignId('modality_id')->constrained('modalities');
             $table->foreignId('genre_id')->constrained('genres');
             $table->foreignId('level_id')->constrained('levels');
-            $table->foreignId('danceclass_id')->constrained('danceclasses');
             $table->string('name');
             $table->date('birthdate');
             $table->string('phone');
-            $table->integer('monthly_payment');
-            $table->integer('payday');
             $table->timestamps();
             $table->softDeletes();
         });
