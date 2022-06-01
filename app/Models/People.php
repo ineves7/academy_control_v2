@@ -20,7 +20,6 @@ class People extends Model
 
     protected $fillable = [
         'status_id',
-        'danceclass_id',
         'genre_id',
         'level_id',
         'name',
@@ -36,11 +35,6 @@ class People extends Model
     public function modality(): BelongsTo
     {
         return $this->belongsTo(Modality::class, 'modality_id');
-    }
-
-    public function danceclass(): BelongsTo
-    {
-        return $this->belongsTo(Danceclass::class, 'danceclass_id');
     }
 
     public function genre(): BelongsTo
@@ -65,6 +59,6 @@ class People extends Model
 
     public function danceclasses(): BelongsToMany
     {
-        return $this->belongsToMany(Danceclass::class)->withPivot('payment', 'payment_date');
+        return $this->belongsToMany(Danceclass::class)->withPivot('payday', 'monthly_payment', 'people_id', 'danceclass_id');
     }
 }

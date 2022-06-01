@@ -11,8 +11,9 @@
                     @foreach ($danceclasses as $danceclass)
                         @if ($danceclass->private_class == false)
 
-
-                            <div class="col-lg-4 px-2 my-2">
+                            
+                            <div class="col-lg-4 px-2 my-2 ">
+                                <a href="{{route ('turmas.show', $danceclass->id)}}" class="text-decoration-none">
                                 <div class="card shadow text-center">
                                     <div class="card-head mt-1">
                                         <h1> 
@@ -23,7 +24,7 @@
                                         <h2> 
                                             @foreach ($danceclass->schedules as $schedule)
                                                 {{isset($schedule->week_day) ? $schedule->week_day : ''}}
-                                            @endforeach 
+                                            @endforeach
                                             @foreach ($danceclass->schedules as $schedule)
                                                 {{isset($schedule->week_day) ? $schedule->week_day : ''}}
                                             @endforeach 
@@ -40,6 +41,7 @@
                                         </h3>
                                     </div>
                                 </div>
+                                </a>
                             </div> 
                         
                         @endif

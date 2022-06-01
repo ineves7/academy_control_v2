@@ -9,7 +9,7 @@ class DanceclassPeople extends Model
 {
     use HasFactory;
 
-    protected $table = 'danceclasses_people';
+    protected $table = 'danceclass_people';
 
     protected $fillable = [
 

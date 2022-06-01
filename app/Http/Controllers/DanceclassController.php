@@ -37,6 +37,8 @@ class DanceclassController extends Controller
     public function store(
         Request $request
     ){
+
+        
             DB::beginTransaction();
 
             $danceclasses = new Danceclass;
@@ -70,11 +72,24 @@ class DanceclassController extends Controller
 
     public function show( $danceclass_id ){
     
-
         try {
-            $danceclasses = Danceclass::find ($danceclass_id);
+            $danceclass = Danceclass::find($danceclass_id);
+            $people = People::all();
+            $danceclasses = Danceclass::all();
+
+            //$addpeople = People::with($danceclass)->where('people_id', '==', $danceclass)->get();
+
+            $ids = array();
+
+            foreach ($danceclass->people as $person) {
+
+                array_push($ids, $person->id);
+
+            }
+
+            $addpeople = People::with('danceclasses')->whereNotIn('id', $ids)->get();
             
-            return view ('admin.danceclasses.show', compact('danceclasses'));
+            return view ('admin.danceclass.show', compact('danceclass', 'people', 'addpeople'));
         }catch (\Throwable $throwable){
             dd($throwable);
             return redirect()->back()->withInput();
@@ -82,6 +97,7 @@ class DanceclassController extends Controller
     }
 
     public function create ()
+
     {
         try {
             $danceclasses = Danceclass::all();

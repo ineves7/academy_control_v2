@@ -31,8 +31,8 @@
 
         <!-- Sidebar - Brand -->
         <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-            <div class="sidebar-brand-icon rotate-n-15">
-                <i class="fas fa-laugh-wink"></i>
+            <div class="">
+                <img class="rounded-circle" src="img/logo.jpg" style="height: 46px;" alt="">
             </div>
             <div class="sidebar-brand-text mx-3">Gustavo Silvestre</div>
         </a>
@@ -91,7 +91,15 @@
         <li class="nav-item {{ Nav::isRoute('turmas.index') }}">
             <a class="nav-link" href="{{ route('turmas.index') }}">
                 <i class="fas fa-fw fa-user"></i>
-                <span>Consultar Turma</span>
+                <span>Turmas Coletivas</span>
+            </a>
+        </li>   
+
+        <!-- Nav Item - Danceclass Search -->
+        <li class="nav-item {{ Nav::isRoute('turmas.index') }}">
+            <a class="nav-link" href="{{ route('turmas.index') }}">
+                <i class="fas fa-fw fa-user"></i>
+                <span>Turmas Particulares</span>
             </a>
         </li>
 
@@ -100,6 +108,14 @@
             <a class="nav-link" href="{{ route('ritmos.create') }}">
                 <i class="fas fa-fw fa-user"></i>
                 <span>Gerenciar Ritmos</span>
+            </a>
+        </li>
+
+        <!-- Nav Item - manage rhythms -->
+        <li class="nav-item {{ Nav::isRoute('agenda.index') }}">
+            <a class="nav-link" href="{{ route('agenda.index') }}">
+                <i class="fas fa-fw fa-user"></i>
+                <span>Agenda</span>
             </a>
         </li>
 
@@ -217,7 +233,7 @@
                         <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="fas fa-bell fa-fw"></i>
                             <!-- Counter - Alerts -->
-                            <span class="badge badge-danger badge-counter">3+</span>
+                            <span class="badge badge-danger badge-counter"></span>
                         </a>
                         <!-- Dropdown - Alerts -->
                         <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown">
@@ -266,7 +282,7 @@
                         <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="fas fa-envelope fa-fw"></i>
                             <!-- Counter - Messages -->
-                            <span class="badge badge-danger badge-counter">7</span>
+                            <span class="badge badge-danger badge-counter"></span>
                         </a>
                         <!-- Dropdown - Messages -->
                         <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="messagesDropdown">

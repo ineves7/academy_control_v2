@@ -58,7 +58,7 @@
                                 <div class="col-lg-4 ">
                                     <label class=" mb-1 mt-2 mb-1 form-control-label" for="week_day">Dias de Aula</label>
                                     <select
-
+                                    
                                     class="form-control" 
                                     name="week_day"
                                     id="week_day"

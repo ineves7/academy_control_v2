@@ -9,29 +9,51 @@
                 <div class=" text-center border-0 my-4" style="letter-spacing:1.5px; font-size: 100px">
                     <h4 class=" text-white m-0">Agenda Semanal</h4>
                 </div>
-
-                <h1> Usuários: {{count($people)}} </h1>
+                <h1> 
+                    Agenda
+                </h1>
                 <table class="table">
                     <thead>
                         <tr>
-                            <th scope="col">Turma</th>
-                            <th scope="col">Dias</th>
-                            <th scope="col">Hora Inicio</th>
-                            <th scope="col">Hora Fim</th>
+                            <th scope="col">__________</th>
+                            <th scope="col">Segunda-Feira</th>
+                            <th scope="col">Terça-Feira</th>
+                            <th scope="col">Quarta-Feira</th>
+                            <th scope="col">Quinta-Feira</th>
+                            <th scope="col">Sexta-Feira</th>
+                            <th scope="col">Sábado</th>
+                            <th scope="col">Domingo</th>
                         </tr>
                     </thead>
                     <tbody>
-                          
-                        @foreach ($schedules as $schedule)
+
+                        
+                        @foreach ($hours as $hour)
+
                             <tr>
-                                <th scope="row">{{$schedule->danceclass}}</th>
-                                <td>{{$schedule->week_day}}</td>
-                                <td>{{$schedule->start_time}}</td>
-                                <td>{{$schedule->end_time}}</td>
-                                {{-- <td><a href="{{route ('pessoas.show', $person->id)}}" class="btn btn-outline-dark">Editar</a> --}}
+                                {{-- Hour --}}
+                                <th scope="row">{{$hour->hour}}</th>
+                                {{-- Segunda-Feira --}}
+                                <td>
+
                                 </td>
+                                {{-- Terça-Feira --}}
+                                <td>2</td>
+                                {{-- Quarta-Feira --}}
+                                <td>3</td>
+                                {{-- Quinta-Feira --}}
+                                <td>4</td>
+                                {{-- Sexta-Feira --}}
+                                <td>5</td>
+                                {{-- Sábado --}}
+                                <td>6</td>
+                                {{-- Domingo --}}
+                                <td>7</td>
                             </tr>
+
                         @endforeach
+
+                        
 
                     </tbody>
                 </table>

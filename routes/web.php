@@ -30,6 +30,10 @@ Route::resource('/turmas', DanceclassController::class);
 
 Route::resource('/ritmos', RhythmController::class);
 
+Route::resource('/gerenciar_turmas', DanceclassPeopleController::class);
+
+Route::resource('/agenda', ScheduleController::class);
+
 
 Route::get('/profile', 'ProfileController@index')->name('profile');
 Route::put('/profile', 'ProfileController@update')->name('profile.update');

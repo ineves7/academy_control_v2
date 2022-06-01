@@ -18,7 +18,7 @@ class CreateDanceclassPeopleTable extends Migration
             $table->foreignId('danceclass_id')->constrained('danceclasses');
             $table->foreignId('people_id')->constrained('peoples');
             $table->float('monthly_payment', 15, 2);
-            $table->date('payday');
+            $table->string('payday');
             $table->timestamps();
         });
     }

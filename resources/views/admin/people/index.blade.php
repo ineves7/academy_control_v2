@@ -14,11 +14,11 @@
                 <table class="table">
                     <thead>
                         <tr>
-                            <th scope="col">ID</th>
                             <th scope="col">Nome</th>
+                            <th scope="col">Turma</th>
                             <th scope="col">Nivel</th>
+                            <th scope="col">Valor</th>
                             <th scope="col">Status</th>
-                            <th scope="col">Cidade</th>
                             <th scope="col">Sistema</th>
                         </tr>
                     </thead>
@@ -26,11 +26,17 @@
                           
                         @foreach ($people as $person)
                             <tr>
-                                <th scope="row">{{$person->id}}</th>
-                                <td>{{$person->name}}</td>
+                                <th scope="row">{{$person->name}}</th>
+
+                                <td>
+                                    @foreach ($person->danceclasses as $personclass)
+                                        {{$personclass->name_danceclass}} <br>
+                                    @endforeach
+                                </td>
+
                                 <td>{{$person->level->level}}</td>
+                                <td>#</td>
                                 <td>{{$person->status->status}}</td>
-                                <td>{{$person->address->city}}</td>
                                 <td><a href="{{route ('pessoas.show', $person->id)}}" class="btn btn-outline-dark">Editar</a>
                                 </td>
                             </tr>
