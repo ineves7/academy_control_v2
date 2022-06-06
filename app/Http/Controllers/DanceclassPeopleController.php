@@ -58,9 +58,28 @@ class DanceclassPeopleController extends Controller
         }
     }
 
-    public function show(){
+    public function show( $danceclass_id ){
     
+        try {
+            $danceclass = Danceclass::find($danceclass_id);
+            $people = People::all();
+            $danceclasses = Danceclass::all();
 
+            $ids = array();
+
+            foreach ($danceclass->people as $person) {
+
+                array_push($ids, $person->id);
+
+            }
+
+            $addpeople = People::with('danceclasses')->whereNotIn('id', $ids)->get();
+            
+            return view ('admin.danceclass.show', compact('danceclass', 'people', 'addpeople'));
+        }catch (\Throwable $throwable){
+            dd($throwable);
+            return redirect()->back()->withInput();
+        }
     }
 
     public function create()

@@ -3,30 +3,22 @@
 @section('main-content')
     <!-- Page Heading -->
         
+    <div class="text-center my-5">
+        <h1 class="display-5 text-secondary"> 
+            Cadastrar Ritmo
+        </h1>
+    </div>
+
     <div class="row">
 
-
-        <div class="offset-lg-2 col-lg-8">
+        <div class="offset-lg-2 col-lg-4">
 
             <div class="card shadow mb-4">
-
-                <div class="row">
-                    <div class=" offset-lg-4 col-lg-4 text-center my-4">
-                        <h1> 
-                            RITMOS
-                        </h1>
-                    </div>
-                </div>
 
                 <div class="row card-body">
 
                     <!-- Register Rhythm -->
-                        <div class="col-lg-6">
-                            <div class="text-center my-4">
-                                <h3> 
-                                Cadastrar
-                                </h3>
-                            </div>
+                        <div class="col-lg-12">
                             <form method="POST" action="{{ route('ritmos.store') }}" autocomplete="off">
                                 @csrf() 
 
@@ -59,48 +51,30 @@
                         </div>
                     
                     <!-- End Register Rhythm -->
-
-                    <!-- Index Rhythms -->
-                        <div class="col-lg-6">
-                            <div class="text-center my-4">
-                                <h3> 
-                                Cadastrados
-                                </h3>
-                            </div>
-                            <table class="table offset-lg-1 col-lg-10 border ">
-                                
-                                <tbody>
-                                    
-                                    @foreach ($rhythms as $rhythm)
-                                        <tr>
-                                            <th scope="row">{{$rhythm->rhythm}}</th>
-                                            <th scope="row">
-                                                <div class="">
-                                                    <form method="POST" name="form-delete" action="{{ route('ritmos.destroy', $rhythm->id) }}">
-                                                        @csrf()
-                                                        @method('delete')
-                                                        <button type="submit" class="btn btn-danger"
-                                                        onclick="return confirm('Tem certeza que deseja deletar?');">Deletar
-                                                        </button>
-                                                    </form>
-                                                </div>
-                                            
-                                            </th>
-                                            {{-- <td><a href="{{route ('pessoas.show', $person->id)}}" class="btn btn-outline-dark">Editar</a> --}}
-                                            </td>
-                                        </tr>
-                                    @endforeach
-
-                                </tbody>
-                            </table>
-
-                        </div>
-                    <!-- End Index Rhythms -->
-
                 </div>
 
         </div>
 
+    </div>
+    <div class="col-lg-4">
+        <div class="card shadow">
+            <table class="table">   
+                <thead class="">
+                    <div class="text-center my-3 text-success">
+                        <h3 class="">Ritmos Cadastrados</h3>
+                    </div>
+                </thead>
+                <tbody>
+                    
+                    @foreach ($rhythms as $rhythm)
+                        <tr class="text-center">
+                            <th scope="row">{{$rhythm->rhythm}}</th>
+                        </tr>
+                    @endforeach
+
+                </tbody>
+            </table>
+        </div>
     </div>
 
 @endsection

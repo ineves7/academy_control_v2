@@ -2,19 +2,18 @@
 
 @section('main-content')
     <!-- Page Heading -->
+
+    <div class="text-center my-5">
+        <h1 class="display-5 text-secondary"> 
+            Cadastrar Aluno
+        </h1>
+    </div>
         
         <div class="row">
+            
+        <div class="offset-lg-1 col-lg-6">
 
-
-        <div class="offset-lg-3 col-lg-6">
-
-            <div class="card shadow mb-4">
-
-                <div class="text-center my-4">
-                    <h1> 
-                        Cadastrar Aluno
-                    </h1>
-                </div>
+            <div class="card shadow">
 
                 <div class="card-body">
 
@@ -26,7 +25,7 @@
                             <div class="row mb-2">
                                 <div class="col-lg-8">
                                     <div class="form-group focused">
-                                        <label class=" mb-1 mt-2 form-control-label" for="name">Name</label>
+                                        <label class=" mb-1 mt-2 form-control-label" for="name">Nome do Aluno</label>
                                         <input 
                                         type="text" 
                                         id="name" 
@@ -35,8 +34,8 @@
                                         placeholder="" 
                                         autofocus
                                         required
-                                        oninvalid="this.setCustomValidity('Seu aluno tem que ter um nome')"
                                         />
+
                                     </div>
                                 </div>
                                 <div class="col-lg-4 ">
@@ -96,6 +95,7 @@
                                         id="birthdate" 
                                         class="form-control" 
                                         name="birthdate"
+                                        required
                                         />
                                         
                                     </div>
@@ -112,6 +112,7 @@
                                         id="city"
                                         class="form-control"
                                         name="city"
+                                        required
                                         />
 
                                     </div>
@@ -125,6 +126,7 @@
                                         id="district"
                                         class="form-control"
                                         name="district"
+                                        required
                                         />
 
                                     </div>
@@ -141,6 +143,7 @@
                                         id="street"
                                         class="form-control"
                                         name="street"
+                                        required
                                         />
 
                                     </div>
@@ -154,6 +157,7 @@
                                         id="number"
                                         class="form-control"
                                         name="number"
+                                        required
                                         />
 
                                     </div>
@@ -168,6 +172,7 @@
                                         class="form-control telefone" 
                                         id="phone" 
                                         name="phone"
+                                        required
                                         />
 
                                     </div>
@@ -187,6 +192,26 @@
 
             </div>
 
+        </div>
+        <div class="col-lg-4">
+            <div class="card shadow">
+                <table class="table">   
+                    <thead class="">
+                        <div class="text-center my-3 text-success">
+                            <h3 class="">Ultimos Cadastros</h3>
+                        </div>
+                    </thead>
+                    <tbody>
+                        
+                        @foreach ($people as $person)
+                            <tr class="text-center">
+                                <th scope="row">{{$person->name}}</th>
+                            </tr>
+                        @endforeach
+
+                    </tbody>
+                </table>
+            </div>
         </div>
 
     </div>

@@ -15,9 +15,8 @@
                     <thead>
                         <tr>
                             <th scope="col">Nome</th>
-                            <th scope="col">Turma</th>
+                            <th scope="col">Turma/Valor</th>
                             <th scope="col">Nivel</th>
-                            <th scope="col">Valor</th>
                             <th scope="col">Status</th>
                             <th scope="col">Sistema</th>
                         </tr>
@@ -28,14 +27,14 @@
                             <tr>
                                 <th scope="row">{{$person->name}}</th>
 
+                                
                                 <td>
                                     @foreach ($person->danceclasses as $personclass)
-                                        {{$personclass->name_danceclass}} <br>
+                                        {{$personclass->name_danceclass . ' / R$ ' . $personclass->pivot->monthly_payment}},00 <br>
                                     @endforeach
+                                
                                 </td>
-
                                 <td>{{$person->level->level}}</td>
-                                <td>#</td>
                                 <td>{{$person->status->status}}</td>
                                 <td><a href="{{route ('pessoas.show', $person->id)}}" class="btn btn-outline-dark">Editar</a>
                                 </td>

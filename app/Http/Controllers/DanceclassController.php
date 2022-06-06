@@ -38,7 +38,8 @@ class DanceclassController extends Controller
         Request $request
     ){
 
-        
+
+
             DB::beginTransaction();
 
             $danceclasses = new Danceclass;
@@ -54,17 +55,22 @@ class DanceclassController extends Controller
 
             $danceclasses->save();
 
-            $schedule = new Schedule();
+
+            foreach ($request->week_days as $weekday){
+
+                $schedule = new Schedule();
 
                 $schedule->danceclass_id = $danceclasses->id;
 
-                $schedule->week_day = $request->week_day;
+                $schedule->week_day = $weekday;
 
                 $schedule->start_time = $request->start_time;
 
                 $schedule->end_time = $request->end_time;
-
-            $schedule->save();
+                
+                $schedule->save();
+            }
+            
 
             DB::commit();
             return redirect()->back();
@@ -76,8 +82,6 @@ class DanceclassController extends Controller
             $danceclass = Danceclass::find($danceclass_id);
             $people = People::all();
             $danceclasses = Danceclass::all();
-
-            //$addpeople = People::with($danceclass)->where('people_id', '==', $danceclass)->get();
 
             $ids = array();
 

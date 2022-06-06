@@ -8,8 +8,6 @@ use App\Models\Danceclass;
 use App\Models\Genre;
 use App\Models\Hour;
 use App\Models\Level;
-use App\Models\Schedule;
-use App\Models\Weekday;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 use Illuminate\Support\Facades\DB;
@@ -100,8 +98,9 @@ class PeopleRegisterController extends Controller
 
             $levels = Level::all();
             $genres = Genre::all();
+            $people = People::all();
     
-            return view('admin.people.create', compact('levels', 'genres'));
+            return view('admin.people.create', compact('levels', 'genres', 'people'));
             
         }catch (\Throwable $throwable){
             dd($throwable);

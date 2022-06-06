@@ -4,62 +4,190 @@
 
 <section id="multiple-column-form ">
     <div class="row mx-3">
-        <div class="col-12">
-            <div class="card border-0">
-                <div class=" text-center border-0 my-4" style="letter-spacing:1.5px; font-size: 100px">
-                    <h4 class=" text-white m-0">Agenda Semanal</h4>
+        <div class="offset-lg-3 col-lg-6 ">
+            <div class="col-lg-12  my-5">
+                <div class="text-center">
+                    <h1> 
+                        Segunda-Feira
+                    </h1>
                 </div>
-                <h1> 
-                    Agenda
-                </h1>
                 <table class="table">
                     <thead>
                         <tr>
-                            <th scope="col">__________</th>
-                            <th scope="col">Segunda-Feira</th>
-                            <th scope="col">Terça-Feira</th>
-                            <th scope="col">Quarta-Feira</th>
-                            <th scope="col">Quinta-Feira</th>
-                            <th scope="col">Sexta-Feira</th>
-                            <th scope="col">Sábado</th>
-                            <th scope="col">Domingo</th>
+                            <th scope="col" class="text-center">Horário</th>
+                            <th scope="col" class="text-center">Turma</th>
                         </tr>
                     </thead>
                     <tbody>
-
-                        
-                        @foreach ($hours as $hour)
-
-                            <tr>
-                                {{-- Hour --}}
-                                <th scope="row">{{$hour->hour}}</th>
-                                {{-- Segunda-Feira --}}
-                                <td>
-
-                                </td>
-                                {{-- Terça-Feira --}}
-                                <td>2</td>
-                                {{-- Quarta-Feira --}}
-                                <td>3</td>
-                                {{-- Quinta-Feira --}}
-                                <td>4</td>
-                                {{-- Sexta-Feira --}}
-                                <td>5</td>
-                                {{-- Sábado --}}
-                                <td>6</td>
-                                {{-- Domingo --}}
-                                <td>7</td>
-                            </tr>
-
-                        @endforeach
-
-                        
-
+                        <tr>
+                            <td class="text-center">
+                                #
+                            </td>
+                            <td class="text-center">
+                                #
+                            </td>
+                        </tr>
                     </tbody>
                 </table>
-
-                
             </div>
+            <div class="col-lg-12  my-5">
+                <div class="text-center">
+                    <h1> 
+                        Terça-Feira
+                    </h1>
+                </div>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col" class="text-center">Horário</th>
+                            <th scope="col" class="text-center">Turma</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="text-center">
+                                #
+                            </td>
+                            <td class="text-center">
+                                #
+                            </td>
+                            
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-lg-12  my-5">
+                <div class="text-center">
+                    <h1> 
+                        Quarta-Feira
+                    </h1>
+                </div>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col" class="text-center">Horário</th>
+                            <th scope="col" class="text-center">Turma</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="text-center">
+                                #
+                            </td>
+                            <td class="text-center">
+                                #
+                            </td>
+                            
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-lg-12  my-5">
+                <div class="text-center">
+                    <h1> 
+                        Quinta-Feira
+                    </h1>
+                </div>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col" class="text-center">Horário</th>
+                            <th scope="col" class="text-center">Turma</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="text-center">
+                                #
+                            </td>
+                            <td class="text-center">
+                                #
+                            </td>
+                            
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-lg-12  my-5">
+                <div class="text-center">
+                    <h1> 
+                        Sexta-Feira
+                    </h1>
+                </div>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col" class="text-center">Horário</th>
+                            <th scope="col" class="text-center">Turma</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="text-center">
+                                #
+                            </td>
+                            <td class="text-center">
+                                #
+                            </td>
+                            
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-lg-12  my-5">
+                <div class="text-center">
+                    <h1> 
+                        Sábado
+                    </h1>
+                </div>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col" class="text-center">Horário</th>
+                            <th scope="col" class="text-center">Turma</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="text-center">
+                                #
+                            </td>
+                            <td class="text-center">
+                                #
+                            </td>
+                            
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-lg-12  my-5">
+                <div class="text-center">
+                    <h1> 
+                        Domingo
+                    </h1>
+                </div>
+                <table class="table">
+                    <thead>
+                        <tr >
+                            <th scope="col" class="text-center">Horário</th>
+                            <th scope="col" class="text-center">Turma</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="text-center">
+                                #
+                            </td>
+                            <td class="text-center">
+                                #
+                            </td>
+                            
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            
         </div>
     </div>
 </section>

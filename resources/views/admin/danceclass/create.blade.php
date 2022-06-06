@@ -2,19 +2,19 @@
 
 @section('main-content')
     <!-- Page Heading -->
+
+    <div class="text-center my-5">
+        <h1 class="display-5 text-secondary"> 
+            Cadastrar Turmas
+        </h1>
+    </div>
         
     <div class="row">
 
 
-        <div class="offset-lg-1 col-lg-6 my-5">
+        <div class="offset-lg-1 col-lg-6">
 
-            <div class="card shadow my-5">
-
-                <div class="text-center my-4">
-                    <h1> 
-                        Cadastrar Turma
-                    </h1>
-                </div>
+            <div class="card shadow">
 
                 <div class="card-body">
 
@@ -56,13 +56,16 @@
 
                             <div class="row mb-4">
                                 <div class="col-lg-4 ">
-                                    <label class=" mb-1 mt-2 mb-1 form-control-label" for="week_day">Dias de Aula</label>
+                                    <label class=" mb-1 mt-2 mb-1 form-control-label " for="week_days">Dias de Aula</label>
                                     <select
                                     
-                                    class="form-control" 
-                                    name="week_day"
-                                    id="week_day"
-                                    required>
+                                    class="form-control js-example-basic-multiple" 
+                                    name="week_days[]"
+                                    id="week_days"
+                                    required
+                                    multiple="multiple"
+                                    required
+                                    >
 
                                     @foreach ($week_days as $week_day)
                                                     
@@ -71,6 +74,8 @@
                                     @endforeach
 
                                     </select>
+
+                                    
                                 </div>
                                 <div class="col-lg-4">
                                     <label class="mb-1 mt-2 form-control-label" for="start_time">Horário inicio</label>
@@ -133,7 +138,8 @@
 
                                     class="form-control" 
                                     name="rhythm_id" 
-                                    id="rhythm_id">
+                                    id="rhythm_id"
+                                    required>
 
                                         <option></option>
 
@@ -161,33 +167,27 @@
             </div>
 
         </div>
-        <div class="col-lg-4 my-5">
-            <div class="card shadow my-5">
-                <table class="table">
+        <div class="col-lg-4">
+            <div class="card shadow">
+                <table class="table">   
                     <thead class="">
-                        <tr>
-                            <th scope="col">Turmas Cadastradas</th>
-                            <th scope="col">Dia/Hora</th>
-                        </tr>
+                        <div class="text-center my-3 text-success">
+                            <h3 class="">Turmas Cadastradas</h3>
+                        </div>
                     </thead>
                     <tbody>
                         
                         @foreach ($danceclasses as $danceclass)
-                            <tr>
+                            <tr class="text-center">
                                 <th scope="row">{{$danceclass->name_danceclass}}</th>
-                                <td>{{$danceclass->weekday}} {{$danceclass->hour}}</td>
-                                <td><a href="{{route ('pessoas.show', $danceclass->id)}}" class="btn btn-outline-dark">Editar</a>
-                                </td>
                             </tr>
                         @endforeach
 
                     </tbody>
                 </table>
             </div>
-
-
         </div>
-
     </div>
+
 
 @endsection

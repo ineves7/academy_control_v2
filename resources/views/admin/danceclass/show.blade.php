@@ -4,38 +4,37 @@
 @section('main-content')
     <!-- Page Heading -->
         
+    <div class="text-center my-5">
+        <h1 class="display-5 text-secondary"> 
+            Gerenciar Turmas
+        </h1>
+    </div>
+
     <div class="row">
 
-        <div class="col-lg-4 px-2 text-center bg-dark">
+        <div class="col-lg-4 px-2 text-center ">
             <div class="card shadow text-center">
                 <div class="card-header">
-                    <h1> Turma {{ $danceclass->name_danceclass}} </h1>
+                    <h1>{{ $danceclass->name_danceclass}} </h1>
                 </div>
                 <div class="card-body">
-                    <h3> 
-                        @foreach ($danceclass->schedules as $schedule)
-                            {{isset($schedule->week_day) ? $schedule->week_day : ''}}
-                        @endforeach 
-                        <br>
-                        @foreach ($danceclass->schedules as $schedule)
-                            {{isset($schedule->week_day) ? $schedule->week_day : ''}}
-                        @endforeach 
+                    @foreach($danceclass->schedules as $schedule)
+                    <h3 class="text-danger"> 
+                        {{isset($schedule->week_day) ? $schedule->week_day : ''}}
                     </h3>
                     <h4 class=" my-4">
-                        @foreach ($danceclass->schedules as $schedule)
-                            {{isset($schedule->start_time) ? $schedule->start_time : ''}}
-                        @endforeach 
-                        <br>
-                        @foreach ($danceclass->schedules as $schedule)
-                            {{isset($schedule->end_time) ? $schedule->end_time : ''}}
-                        @endforeach 
+                        {{isset($schedule->start_time) ? $schedule->start_time : ''}}
+                        Às
+                        {{isset($schedule->end_time) ? $schedule->end_time : ''}}
+                        
                     </h4>
+                    @endforeach 
                     <h4>
                         Ritmo
                     </h4>
                     <hr>
                     <h3>
-                        Qtd. Alunos
+                        Alunos:  {{count($danceclass->people)}}
                         <br>
                         Valor Total
                     </h3>
@@ -44,10 +43,10 @@
             </div>
         </div>
 
-        <div class="col-lg-4 px-2 text-center bg-primary">
+        <div class="col-lg-4 px-2 text-center ">
             <div class="card shadow text-center">
                 <div class="card-header">
-                    <h1> Add People </h1>
+                    <h1> Adicionar Alunos </h1>
                 </div>
             <div class="card-body">
                 <form method="POST" action="{{route ('gerenciar_turmas.store')}}" autocomplete="off">
@@ -87,6 +86,7 @@
                                     id="monthly_payment"
                                     class="form-control"
                                     name="monthly_payment"
+                                    required
                                     />
 
                                 </div>
@@ -100,6 +100,7 @@
                                     id="payday"
                                     class="form-control"
                                     name="payday"
+                                    required
                                     />
 
                                 </div>
@@ -117,10 +118,10 @@
             </div>
         </div>
 
-        <div class="col-lg-4 px-2 text-center bg-danger ">
+        <div class="col-lg-4 px-2 text-center ">
             <div class="card shadow text-center">
                 <div class="card-header">
-                    <h1> People x class </h1>
+                    <h1> Alunos na Turma</h1>
                 </div>
                 <div class="card-body">
                     
