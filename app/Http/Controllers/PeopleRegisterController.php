@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use EloquentFilter\Filterable;
 use App\Models\People;
 use App\Models\Address;
 use App\Models\Danceclass;
@@ -15,6 +16,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class PeopleRegisterController extends Controller
 {
+
+    use Filterable;
 
     public function index(): View
     {

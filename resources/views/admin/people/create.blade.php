@@ -18,7 +18,7 @@
                 <div class="card-body">
 
                     <form method="POST" action="{{ route('pessoas.store') }}" autocomplete="off">
-                        @csrf() 
+                        @csrf()
 
                         <div class="px-lg-2">
 

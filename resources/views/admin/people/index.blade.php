@@ -7,7 +7,36 @@
         <div class="col-12">
             <div class="card border-0">
                 <div class=" text-center border-0 my-4" style="letter-spacing:1.5px; font-size: 100px">
-                    <h4 class=" text-white m-0">Consultar</h4>
+                    <h4 class=" m-0">Consultar</h4>
+                </div>
+
+                <div>
+                    <form class="dt_adv_search" method="POST">
+                            @csrf()
+                        <div class="row">
+                            <div class="col-lg-8">
+                                <div class="form-group focused">
+                                    <label class=" mb-1 mt-2 form-control-label" for="name">Buscar Aluno</label>
+                                    <input 
+                                    type="text" 
+                                    id="name" 
+                                    class="form-control" 
+                                    name="name"
+                                    placeholder="" 
+                                    autofocus
+                                    required
+                                    />
+
+                                </div>
+                            </div>
+                            <!-- Button -->
+                            <div class="">
+                                <div class="">
+                                    <button type="submit" class="btn btn-primary btn-lg col-12">Buscar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
                 </div>
 
                 <h1> Usuários: {{count($people)}} </h1>
