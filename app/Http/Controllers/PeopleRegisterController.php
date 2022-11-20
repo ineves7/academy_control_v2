@@ -106,10 +106,10 @@ class PeopleRegisterController extends Controller
 
             $levels = Level::all();
             $genres = Genre::all();
-            $people = People::all();
+            $peoples = People::all();
             $categories = Category::all();
     
-            return view('admin.people.create', compact('levels', 'genres', 'people', 'categories'));
+            return view('admin.people.create', compact('levels', 'genres', 'peoples', 'categories'));
             
         }catch (\Throwable $throwable){
             dd($throwable);
