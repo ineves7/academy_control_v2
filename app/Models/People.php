@@ -22,9 +22,11 @@ class People extends Model
         'status_id',
         'genre_id',
         'level_id',
+        'category_id',
         'name',
         'birthdate',
         'phone',
+        'start_date'
     ];
 
     public function status(): BelongsTo
@@ -40,6 +42,11 @@ class People extends Model
     public function genre(): BelongsTo
     {
         return $this->belongsTo(Genre::class, 'genre_id');
+    }
+
+    public function category(): BelongsTo
+    {
+        return $this->belongsTo(Category::class, 'category_id');
     }
 
     public function level(): BelongsTo

@@ -9,6 +9,7 @@ use App\Models\Danceclass;
 use App\Models\Genre;
 use App\Models\Hour;
 use App\Models\Level;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 use Illuminate\Support\Facades\DB;
@@ -51,12 +52,16 @@ class PeopleRegisterController extends Controller
 
                 $people->genre_id = $request->genre_id;
 
+                $people->category_id = $request->category_id;
+
                 $people->birthdate = $request->birthdate;
 
                 $people->status_id = $request->status_id;
 
                 $people->phone = $request->phone;
 
+                $people->start_date = $request->start_date;
+                
             $people->save();
 
 
@@ -102,8 +107,9 @@ class PeopleRegisterController extends Controller
             $levels = Level::all();
             $genres = Genre::all();
             $people = People::all();
+            $categories = Category::all();
     
-            return view('admin.people.create', compact('levels', 'genres', 'people'));
+            return view('admin.people.create', compact('levels', 'genres', 'people', 'categories'));
             
         }catch (\Throwable $throwable){
             dd($throwable);
@@ -128,8 +134,6 @@ class PeopleRegisterController extends Controller
 
                 $person->level_id = $request->level_id;
 
-                $person->danceclass_id = $request->danceclass_id;
-
                 $person->genre_id = $request->genre_id;
 
                 $person->birthdate = $request->birthdate; 
@@ -137,10 +141,6 @@ class PeopleRegisterController extends Controller
                 $person->status_id = $request->status_id;
 
                 $person->phone = $request->phone;
-
-                $person->monthly_payment = $request->monthly_payment;
-
-                $person->payday = $request->payday;
 
                 $person->save();
 

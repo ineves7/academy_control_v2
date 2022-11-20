@@ -18,9 +18,11 @@ return new class extends Migration
             $table->foreignID('status_id')->constrained('statuses');
             $table->foreignId('genre_id')->constrained('genres');
             $table->foreignId('level_id')->constrained('levels');
+            $table->foreignId('category_id')->constrained('categories');
             $table->string('name');
             $table->date('birthdate');
             $table->string('phone');
+            $table->date('start_date');
             $table->timestamps();
             $table->softDeletes();
         });

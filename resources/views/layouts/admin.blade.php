@@ -53,64 +53,54 @@
 
         <!-- Heading -->
         <div class="sidebar-heading">
-            Alunos
+            Gerencimanto de Pessoas
         </div>
 
         <!-- Nav Item - Student Register -->
-        <li class="nav-item {{ Nav::isRoute('pessoas.create') }}">
-            <a class="nav-link" href="{{ route('pessoas.create') }}">
-                <i class="fas fa-fw fa-user"></i>
-                <span>Cadastrar Aluno</span>
-            </a>
-        </li>
 
-        <!-- Nav Item - Student Search -->
-        <li class="nav-item {{ Nav::isRoute('pessoas.index') }}">
-            <a class="nav-link" href="{{ route('pessoas.index') }}">
-                <i class="fas fa-fw fa-user"></i>
-                <span>Consultar Alunos</span>
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePeople"
+                aria-expanded="true" aria-controls="collapseTwo">
+                <i class="fas fa-fw fa-cog"></i>
+                <span>Alunos</span>
             </a>
+            <div id="collapsePeople" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div class="bg-gradient-primary py-2 collapse-inner rounded">
+                    <a class="collapse-item text-gray-100" href="{{ route('pessoas.create') }}">Cadastrar Aluno</a>
+                    <a class="collapse-item text-gray-100" href="{{ route('pessoas.index') }}">Consultar Alunos</a>
+                    <a class="collapse-item text-gray-100" href="{{ route('categorias.create') }}">Gerenciar Categorias</a>
+                </div>
+            </div>
         </li>
-
+        
         <!-- Divider -->
         <hr class="sidebar-divider">
 
         <!-- Heading -->
         <div class="sidebar-heading">
-            Alunos
+            Gerencimanto de Turmas
         </div>
 
-        <!-- Nav Item - Danceclass Register -->
-        <li class="nav-item {{ Nav::isRoute('turmas.create') }}">
-            <a class="nav-link" href="{{ route('turmas.create') }}">
-                <i class="fas fa-fw fa-user"></i>
-                <span>Cadastrar Turma</span>
+        <!-- Nav Item - Student Register -->
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseDanceClass"
+                aria-expanded="true" aria-controls="collapseTwo">
+                <i class="fas fa-fw fa-cog"></i>
+                <span>Turmas</span>
             </a>
+            <div id="collapseDanceClass" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div class="bg-gradient-primary py-2 collapse-inner rounded">
+                    <a class="collapse-item text-gray-100" href="{{ route('turmas.create') }}">Cadastrar Turma</a>
+                    <a class="collapse-item text-gray-100" href="{{ route('turmas.index') }}">Consultar Turmas</a>
+                    <a class="collapse-item text-gray-100" href="{{ route('ritmos.create') }}">Gerenciar Ritmos</a>
+                </div>
+            </div>
         </li>
 
-        <!-- Nav Item - Danceclass Search -->
-        <li class="nav-item {{ Nav::isRoute('turmas.index') }}">
-            <a class="nav-link" href="{{ route('turmas.index') }}">
-                <i class="fas fa-fw fa-user"></i>
-                <span>Turmas Coletivas</span>
-            </a>
-        </li>   
+        <!-- Divider -->
+        <hr class="sidebar-divider">
 
-        <!-- Nav Item - Danceclass Search -->
-        <li class="nav-item {{ Nav::isRoute('turmas.index') }}">
-            <a class="nav-link" href="{{ route('turmas.index') }}">
-                <i class="fas fa-fw fa-user"></i>
-                <span>Turmas Particulares</span>
-            </a>
-        </li>
-
-        <!-- Nav Item - manage rhythms -->
-        <li class="nav-item {{ Nav::isRoute('ritmos.create') }}">
-            <a class="nav-link" href="{{ route('ritmos.create') }}">
-                <i class="fas fa-fw fa-user"></i>
-                <span>Gerenciar Ritmos</span>
-            </a>
-        </li>
 
         <!-- Nav Item - manage rhythms -->
         <li class="nav-item {{ Nav::isRoute('agenda.index') }}">

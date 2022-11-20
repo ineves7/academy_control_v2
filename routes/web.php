@@ -30,6 +30,8 @@ Route::resource('/turmas', DanceclassController::class);
 
 Route::resource('/ritmos', RhythmController::class);
 
+Route::resource('/categorias', CategoryController::class);
+
 Route::resource('/gerenciar_turmas', DanceclassPeopleController::class);
 
 Route::resource('/agenda', ScheduleController::class);

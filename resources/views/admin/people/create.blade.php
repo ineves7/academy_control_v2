@@ -25,7 +25,7 @@
                             <div class="row mb-2">
                                 <div class="col-lg-8">
                                     <div class="form-group focused">
-                                        <label class=" mb-1 mt-2 form-control-label" for="name">Nome do Aluno</label>
+                                        <label class="mb-1 mt-2 ml-1 form-control-label" for="name">Nome do Aluno</label>
                                         <input 
                                         type="text" 
                                         id="name" 
@@ -133,7 +133,7 @@
                                 </div>
                             </div>
 
-                            <div class="row mb-5">
+                            <div class="row">
                                 <div class=" col-lg-5">
                                     <div class="form-group focused">
                                         <label class=" mb-1 mt-2 form-control-label" for="rua">Rua</label>
@@ -177,6 +177,41 @@
 
                                     </div>
                                 </div>
+                            </div>
+
+                            <div class="row mb-5">
+
+                                <div class="col-lg-4 offset-lg-2">
+                                    <label class=" mb-1 mt-2 form-control-label" for="start_date">Data de Início</label>
+                                    <div class="input-group input-group-joined">
+                                        <input 
+
+                                        type="date"
+                                        id="start_date" 
+                                        class="form-control" 
+                                        name="start_date"
+                                        required
+                                        />
+                                        
+                                    </div>
+                                </div>
+                                <div class=" col-lg-4">
+                                    <label class=" mb-1 mt-2 form-control-label" for="category_id">Categoria</label>
+                                    <select
+
+                                    class="form-control" 
+                                    name="category_id" 
+                                    id="category_id">
+                                    
+                                    @foreach ($categories as $category)
+                                                
+                                        <option value="{{$category->id}}">{{$category->category}}</option>
+
+                                    @endforeach
+
+                                    </select>
+                                </div>
+
                             </div>
 
                                 <!-- Button -->
