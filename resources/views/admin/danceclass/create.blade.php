@@ -1,6 +1,6 @@
-@extends('layouts.admin')
+@extends('admin.layouts.layout')
 
-@section('main-content')
+@section('content')
     <!-- Page Heading -->
 
     <div class="text-center my-5">
@@ -188,6 +188,4 @@
             </div>
         </div>
     </div>
-
-
 @endsection

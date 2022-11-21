@@ -1,6 +1,6 @@
-@extends('layouts.admin')
+@extends('admin.layouts.layout')
 
-@section('main-content')
+@section('content')
 
 <section id="multiple-column-form ">
     <div class="row mx-3">

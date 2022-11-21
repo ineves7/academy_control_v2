@@ -1,6 +1,6 @@
-@extends('layouts.admin')
+@extends('admin.layouts.layout')
 
-@section('main-content')
+@section('content')
     <!-- Page Heading -->
 
     <div class="text-center my-5">
@@ -250,10 +250,11 @@
                 <!-- Card Content - Collapse -->
                 <div class="collapse show" id="collapseCardExample">
                     @foreach($peoples as $people)
-                        <div class="ml-4 mt-3 mb-2">
+                    <div class="mt-3 d-flex flex-row ml-1">
+                        <i class="fas fa-check ml-4 mt-1 mr-2 fa-1x" style="color: #74c574;"></i>
                             <p><strong>{{$people->name}}</strong></p>
                         </div>
-                    <hr>
+                    <hr class="mt-0">
                     @endforeach
                 </div>
             </div>
@@ -268,5 +269,7 @@
 $(document).ready(function() {
     $('.telefone').mask("(99) 99999-9999");
 });
+
+
 
 </script>
