@@ -19,24 +19,19 @@ class People extends Model
     protected $table = 'peoples';
 
     protected $fillable = [
-        'status_id',
-        'genre_id',
-        'level_id',
-        'category_id',
+        'active',
         'name',
+        'level_id',
+        'genre_id',
         'birthdate',
         'phone',
+        'category_id',
         'start_date'
     ];
 
-    public function status(): BelongsTo
+    public function level(): BelongsTo
     {
-        return $this->belongsTo(Status::class, 'status_id');
-    }
-
-    public function modality(): BelongsTo
-    {
-        return $this->belongsTo(Modality::class, 'modality_id');
+        return $this->belongsTo(Level::class, 'level_id');
     }
 
     public function genre(): BelongsTo
@@ -48,20 +43,10 @@ class People extends Model
     {
         return $this->belongsTo(Category::class, 'category_id');
     }
-
-    public function level(): BelongsTo
-    {
-        return $this->belongsTo(Level::class, 'level_id');
-    }
     
     public function address(): HasOne
     {
         return $this->hasOne(Address::class, 'people_id');
-    }
-
-    public function schedule(): HasMany
-    {
-        return $this->hasMany(Schedule::class, 'people_id');
     }
 
     public function danceclasses(): BelongsToMany

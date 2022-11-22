@@ -16,9 +16,9 @@ class Status extends Model
         'status'
     ];
 
-    public function people(): HasMany
+    public function danceclass(): HasMany
     {
-        return $this->hasMany(People::class, 'status_id');
+        return $this->hasMany(Danceclass::class, 'status_id');
     }
     
 }

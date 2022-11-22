@@ -16,8 +16,13 @@ class Level extends Model
         'level'
     ];
 
-    public function people(): HasMany
+    public function peoples(): HasMany
     {
         return $this->hasMany(People::class, 'level_id');
+    }
+
+    public function danceclasses(): HasMany
+    {
+        return $this->hasMany(Danceclass::class, 'level_id');
     }
 }

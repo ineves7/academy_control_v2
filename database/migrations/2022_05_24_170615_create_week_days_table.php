@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateWeekDayTable extends Migration
+class CreateWeekDaysTable extends Migration
 {
     /**
      * Run the migrations.
@@ -27,6 +27,6 @@ class CreateWeekDayTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('week_day');
+        Schema::dropIfExists('week_days');
     }
 }

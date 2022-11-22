@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Hour;
 use App\Models\Schedule;
+use App\Models\Week_day;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -20,8 +21,9 @@ class ScheduleController extends Controller
         try {
             $schedules = Schedule::all();
             $hours = Hour::all();
+            $week_days = Week_day::all();
     
-            return view('admin.schedule.index', compact('schedules', 'hours'));
+            return view('admin.schedule.index', compact('schedules', 'hours', 'week_days'));
             
             
         }catch (\Throwable $throwable){

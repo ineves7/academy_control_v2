@@ -15,10 +15,10 @@ return new class extends Migration
     {
         Schema::create('peoples', function (Blueprint $table) {
             $table->id();
-            $table->foreignID('status_id')->constrained('statuses');
             $table->foreignId('genre_id')->constrained('genres');
             $table->foreignId('level_id')->constrained('levels');
             $table->foreignId('category_id')->constrained('categories');
+            $table->boolean('active');
             $table->string('name');
             $table->date('birthdate');
             $table->string('phone');

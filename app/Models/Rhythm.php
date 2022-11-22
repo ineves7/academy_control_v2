@@ -15,4 +15,9 @@ class Rhythm extends Model
         'rhythm'
     ];
 
+    public function danceclasses(): HasMany
+    {
+        return $this->hasMany(Danceclass::class, 'level_id');
+    }
+
 }

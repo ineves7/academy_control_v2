@@ -17,8 +17,9 @@ return new class extends Migration
             $table->id();
             $table->foreignId('level_id')->constrained('levels');
             $table->foreignId('rhythm_id')->constrained('rhythms');
+            $table->foreignId('status_id')->constrained('statuses');
+            $table->foreignId('modality_id')->constrained('modalities');
             $table->string('name_danceclass');
-            $table->boolean('private_class');
             $table->timestamps();
         });
     }

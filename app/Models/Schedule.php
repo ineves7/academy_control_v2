@@ -15,13 +15,30 @@ class Schedule extends Model
 
     protected $fillable = [
         'danceclass_id',
-        'week_day',
-        'start_time',
-        'end_time'
+        'week_day_id',
+        'start_time_id',
+        'end_time_id'
     ];
 
-    public function danceclass(): BelongsTo
+    public function danceclass(): HasMany
     {
         return $this->belongsTo(Danceclass::class, 'danceclass_id');
     }
+
+    public function week_days(): HasMany
+    {
+        return $this->hasMany(week_days::class, 'danceclass_id');
+    }
+
+    public function start_time(): HasMany
+    {
+        return $this->belongsTo(Hour::class, 'danceclass_id');
+    }
+
+    public function end_time(): HasMany
+    {
+        return $this->belongsTo(end_time::class, 'danceclass_id');
+    }
+
+
 }

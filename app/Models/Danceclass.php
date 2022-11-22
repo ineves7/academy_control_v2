@@ -15,10 +15,11 @@ class Danceclass extends Model
     protected $table = 'danceclasses';
 
     protected $fillable = [
+        'name_danceclass',
+        'modality_id',
         'level_id',
         'rhythm_id',
-        'name_danceclass',
-        'private_class'
+        'status_id'
     ];
 
 
@@ -27,14 +28,24 @@ class Danceclass extends Model
         return $this->hasMany(Schedule::class, 'danceclass_id');
     }
 
-    public function level(): BelongsTo
+    public function modality(): BelongsTo
     {
-        return $this->belongsTo(Level::class, 'level_id');
+        return $this->belongsTo(Modality::class);
     }
 
-    public function people(): BelongsToMany
+    public function level(): BelongsTo
     {
-        return $this->belongsToMany(People::class)->withPivot('monthly_payment', 'payday');
+        return $this->belongsTo(Level::class);
+    }
+
+    public function rhythm(): BelongsTo
+    {
+        return $this->belongsTo(Rhythm::class, 'level_id');
+    }
+
+    public function peoples(): BelongsToMany
+    {
+        return $this->belongsToMany(People::class)->withPivot('payday', 'monthly_payment', 'people_id', 'danceclass_id');
     }
 
 

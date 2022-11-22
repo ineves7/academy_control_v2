@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Hash;
 use App\Models\MatrialStatus;
 use App\Models\Status;
 use App\Models\User;
-use App\Models\Week_day;
+use App\Models\WeekDay;
 
 class DefaultInserts extends Migration
 {
@@ -49,7 +49,7 @@ class DefaultInserts extends Migration
         ];
 
         foreach ($week_days as $week_day) {
-            Week_day::firstOrCreate($week_day);
+            WeekDay::firstOrCreate($week_day);
         }
 
         $hours = [

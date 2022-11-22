@@ -16,8 +16,8 @@ class Modality extends Model
         'modality'
     ];
 
-    public function people(): HasMany
+    public function danceclasses(): HasMany
     {
-        return $this->hasMany(People::class, 'modality_id');
+        return $this->hasMany(Danceclass::class, 'modality_id');
     }
 }
