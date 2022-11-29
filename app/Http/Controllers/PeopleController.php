@@ -28,27 +28,29 @@ class PeopleController extends Controller
 
         try {
             $people = People::all();
-    
+
             return view('admin.people.index', compact('people'));
-            
+
         }catch (\Throwable $throwable){
             dd($throwable);
             return redirect()->back()->withInput();
         }
-        
+
     }
 
     public function store(
         Request $request
     ){
 
+        dd($request);
+
             DB::beginTransaction();
 
             $people = new People;
 
-                $people->active = $request->active; 
+                $people->active = $request->active;
 
-                $people->name = $request->name; 
+                $people->name = $request->name;
 
                 $people->level_id = $request->level_id;
 
@@ -61,9 +63,8 @@ class PeopleController extends Controller
                 $people->category_id = $request->category_id;
 
                 $people->start_date = $request->start_date;
-                
-            $people->save();
 
+            $people->save();
 
             $address = new Address;
 
@@ -85,13 +86,13 @@ class PeopleController extends Controller
     }
 
     public function show( $person_id ){
-    
+
 
         try {
             $person = People::find($person_id);
             $danceclasses = Danceclass::all();
             $hours = Hour::all();
-            
+
             return view ('admin.people.show', compact('person', 'danceclasses', 'hours'));
         }catch (\Throwable $throwable){
             dd($throwable);
@@ -104,21 +105,19 @@ class PeopleController extends Controller
 
         try {
 
-            $levels = Level::all();
             $genres = Genre::all();
             $peoples = People::all();
-            $categories = Category::all();
-    
-            return view('admin.people.create', compact('levels', 'genres', 'peoples', 'categories'));
-            
+
+            return view('admin.people.create', compact('genres', 'peoples'));
+
         }catch (\Throwable $throwable){
             dd($throwable);
             return redirect()->back()->withInput();
         }
-            
+
     }
 
-    public function update ( 
+    public function update (
         Request $request, $person_id
     )
     {
@@ -130,9 +129,9 @@ class PeopleController extends Controller
 
             $person = People::find($person_id);
 
-            $people->active = $request->active; 
+            $people->active = $request->active;
 
-            $people->name = $request->name; 
+            $people->name = $request->name;
 
             $people->level_id = $request->level_id;
 
@@ -148,7 +147,7 @@ class PeopleController extends Controller
 
                 $person->save();
 
-            
+
             $address_id = $person->address->id;
 
             $address = Address::find($address_id);
@@ -164,7 +163,7 @@ class PeopleController extends Controller
             $address->save();
 
             DB::commit();
-            
+
             return redirect()->back();
         }catch (\Throwable $throwable){
             DB::rollBack();
@@ -173,10 +172,10 @@ class PeopleController extends Controller
         }
     }
 
-    public function destroy ( 
+    public function destroy (
         $person_id
     )
-    { 
+    {
         try {
             $person = People::find($person_id);
 
@@ -187,6 +186,6 @@ class PeopleController extends Controller
             dd($throwable);
             return redirect()->back()->withInput();
         }
-        
+
     }
 }

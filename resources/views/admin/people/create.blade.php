@@ -4,13 +4,13 @@
     <!-- Page Heading -->
 
     <div class="text-center my-5">
-        <h1 class="display-5 text-secondary"> 
+        <h1 class="display-5 text-secondary">
             Cadastrar Aluno
         </h1>
     </div>
-        
+
         <div class="row">
-            
+
         <div class="offset-lg-1 col-lg-6 mt-3">
 
             <div class="card shadow">
@@ -23,32 +23,34 @@
                         <div class="px-lg-2">
 
                             <div class="row">
-                                <div class="col-lg-8">
+                                <div class="col-lg-4">
                                     <div class="form-group">
-                                        <label class="mb-1 ml-1 ml-1 form-control-label" for="name">Nome do Aluno</label>
-                                        <input 
-                                        type="text" 
-                                        id="name" 
-                                        class="form-control" 
-                                        name="name" 
-                                        placeholder="" 
+                                        <label class="mb-1 ml-1 ml-1 form-control-label" for="name">Nome</label>
+                                        <input
+                                        type="text"
+                                        id="name"
+                                        class="form-control"
+                                        name="name"
+                                        placeholder=""
                                         autofocus
                                         required
                                         />
 
                                     </div>
                                 </div>
-                                <div class="col-lg-4 ">
+                                <div class="col-lg-8">
                                     <div class="form-group">
-                                        <label class=" mb-1 ml-1 form-control-label" for="active">Ativo</label>
-                                        <select
-                                        class="form-control" 
-                                        name="active"
-                                        id="active">
+                                        <label class="mb-1 ml-1 ml-1 form-control-label" for="name">Sobrenome</label>
+                                        <input
+                                        type="text"
+                                        id="name"
+                                        class="form-control"
+                                        name="name"
+                                        placeholder=""
+                                        autofocus
+                                        required
+                                        />
 
-                                            <option value="0">Ativo</option>
-                                            <option value="1">Inativo</option>
-                                        </select>
                                     </div>
                                 </div>
                             </div>
@@ -56,18 +58,16 @@
                             <div class="row mb-2">
                                 <div class=" col-lg-4">
                                     <div class="form-group">
-                                        <label class=" mb-1 ml-1 form-control-label" for="level_id">Nivel</label>
+                                        <label class=" mb-1 ml-1 form-control-label" for="level_people">Nivel</label>
                                         <select
 
-                                        class="form-control" 
-                                        name="level_id" 
-                                        id="level_id">
-                                        
-                                        @foreach ($levels as $level)
-                                                    
-                                            <option value="{{$level->id}}">{{$level->level}}</option>
+                                        class="form-control"
+                                        name="level_people"
+                                        id="level_people">
 
-                                        @endforeach
+                                            <option value="INICIANTE">Iniciante</option>
+                                            <option value="INTERMEDIÁRIO">Intermediário</option>
+                                            <option value="AVANCADO">Avançado</option>
 
                                         </select>
                                     </div>
@@ -78,12 +78,12 @@
                                         <select
 
 
-                                        class="form-control" 
-                                        name="genre_id" 
+                                        class="form-control"
+                                        name="genre_id"
                                         id="genre_id">
 
                                         @foreach ($genres as $genre)
-                                                    
+
                                             <option value="{{$genre->id}}">{{$genre->genre}}</option>
 
                                         @endforeach
@@ -95,25 +95,45 @@
                                     <div class="form-group">
                                         <label class=" mb-1 ml-1 form-control-label" for="birthdate">Data de Nasc.</label>
                                         <div class="input-group input-group-joined">
-                                            <input 
+                                            <input
 
                                             type="date"
-                                            id="birthdate" 
-                                            class="form-control" 
+                                            id="birthdate"
+                                            class="form-control"
                                             name="birthdate"
                                             required
                                             />
-                                            
+
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="row">
+                            <div class="row p-0">
+                                <div class="col-lg-12">
+                                    <div class="form-group">
+                                        <div class="form-group">
+                                            <label class=" mb-1 ml-1 form-control-label" for="email">Email</label>
+                                            <input
+
+                                            type="enum"
+                                            data-mask="(00) 00000-0000"
+                                            class="form-control telefone"
+                                            id="email"
+                                            name="email"
+                                            required
+                                            />
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row mt-3">
                                 <div class="col-lg-7">
                                     <div class="form-group">
                                         <label class=" mb-1 ml-1 form-control-label" for="city">Cidade</label>
-                                        <input 
+                                        <input
 
                                         type="text"
                                         id="city"
@@ -127,7 +147,7 @@
                                 <div class="col-lg-5">
                                     <div class="form-group">
                                         <label class=" mb-1 ml-1 form-control-label" for="district">Bairro</label>
-                                        <input 
+                                        <input
 
                                         type="text"
                                         id="district"
@@ -144,7 +164,7 @@
                                 <div class=" col-lg-5">
                                     <div class="form-group">
                                         <label class=" mb-1 ml-1 form-control-label" for="rua">Rua</label>
-                                        <input 
+                                        <input
 
                                         type="text"
                                         id="street"
@@ -158,7 +178,7 @@
                                 <div class="col-lg-2">
                                     <div class="form-group">
                                         <label class=" mb-1 ml-1 form-control-label" for="numero">N.º</label>
-                                        <input 
+                                        <input
 
                                         type="text"
                                         id="number"
@@ -173,12 +193,12 @@
                                     <div class="form-group">
                                         <div class="form-group">
                                             <label class=" mb-1 ml-1 form-control-label" for="phone">Telefone</label>
-                                            <input 
+                                            <input
 
                                             type="enum"
                                             data-mask="(00) 00000-0000"
-                                            class="form-control telefone" 
-                                            id="phone" 
+                                            class="form-control telefone"
+                                            id="phone"
                                             name="phone"
                                             required
                                             />
@@ -188,42 +208,36 @@
                                 </div>
                             </div>
 
-                            <div class="row mb-5">
-                                <div class="col-lg-4 offset-lg-2">
+                            <div class="row mb-5  mt-4">
+                                <div class="col-lg-4 offset-md-2">
                                     <div class="form-group">
-                                        <label class=" mb-1 ml-1 form-control-label" for="start_date">Data de Início</label>
-                                        <div class="input-group input-group-joined">
-                                            <input 
-
-                                            type="date"
-                                            id="start_date" 
-                                            class="form-control" 
-                                            name="start_date"
-                                            required
-                                            />
-                                            
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class=" col-lg-4">
-                                    <div class="form-group">
-                                        <label class=" mb-1 ml-1 form-control-label" for="category_id">Categoria</label>
+                                        <label class=" mb-1 ml-1 form-control-label" for="active">Ativo</label>
                                         <select
+                                        class="form-control"
+                                        name="active"
+                                        id="active">
 
-                                        class="form-control" 
-                                        name="category_id" 
-                                        id="category_id">
-                                        
-                                        @foreach ($categories as $category)
-                                                    
-                                            <option value="{{$category->id}}">{{$category->category}}</option>
-
-                                        @endforeach
-
+                                            <option value="0">Ativo</option>
+                                            <option value="1">Inativo</option>
                                         </select>
                                     </div>
                                 </div>
+                                <div class="col-lg-4">
+                                    <div class="form-group">
+                                        <label class=" mb-1 ml-1 form-control-label" for="start_date">Data de Início</label>
+                                        <div class="input-group input-group-joined">
+                                            <input
 
+                                            type="date"
+                                            id="start_date"
+                                            class="form-control"
+                                            name="start_date"
+                                            required
+                                            />
+
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
 
                                 <!-- Button -->

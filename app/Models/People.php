@@ -21,7 +21,6 @@ class People extends Model
     protected $fillable = [
         'genre_id',
         'level_people',
-        'status_people',
         'active',
         'name',
         'last_name',

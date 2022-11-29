@@ -17,10 +17,9 @@ return new class extends Migration
             $table->id();
             $table->foreignId('genre_id')->constrained('genres');
             $table->enum('level_people', ['INICIANTE', 'INTERMEDIÁRIO', 'AVANÇADO']);
-            $table->enum('status_people', ['ATIVO', 'INATIVO']);
-            $table->boolean('active');
             $table->string('name');
             $table->string('last_name');
+            $table->boolean('active');
             $table->date('birthdate');
             $table->string('phone');
             $table->string('email')->unique();
