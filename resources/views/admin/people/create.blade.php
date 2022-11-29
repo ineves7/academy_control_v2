@@ -40,14 +40,14 @@
                                 </div>
                                 <div class="col-lg-4 ">
                                     <div class="form-group">
-                                        <label class=" mb-1 ml-1 form-control-label" for="status_id">Status</label>
+                                        <label class=" mb-1 ml-1 form-control-label" for="active">Ativo</label>
                                         <select
                                         class="form-control" 
-                                        name="status_id"
-                                        id="status_id">
+                                        name="active"
+                                        id="active">
 
-                                            <option value="1">Ativo</option>
-                                            <option value="2">Inativo</option>
+                                            <option value="0">Ativo</option>
+                                            <option value="1">Inativo</option>
                                         </select>
                                     </div>
                                 </div>

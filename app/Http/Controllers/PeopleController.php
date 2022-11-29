@@ -15,7 +15,7 @@ use Illuminate\View\View;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class PeopleRegisterController extends Controller
+class PeopleController extends Controller
 {
 
     use Filterable;
@@ -46,19 +46,19 @@ class PeopleRegisterController extends Controller
 
             $people = new People;
 
+                $people->active = $request->active; 
+
                 $people->name = $request->name; 
 
                 $people->level_id = $request->level_id;
 
                 $people->genre_id = $request->genre_id;
 
-                $people->category_id = $request->category_id;
-
                 $people->birthdate = $request->birthdate;
 
-                $people->status_id = $request->status_id;
-
                 $people->phone = $request->phone;
+
+                $people->category_id = $request->category_id;
 
                 $people->start_date = $request->start_date;
                 
@@ -130,17 +130,21 @@ class PeopleRegisterController extends Controller
 
             $person = People::find($person_id);
 
-                $person->name = $request->name; 
+            $people->active = $request->active; 
 
-                $person->level_id = $request->level_id;
+            $people->name = $request->name; 
 
-                $person->genre_id = $request->genre_id;
+            $people->level_id = $request->level_id;
 
-                $person->birthdate = $request->birthdate; 
+            $people->genre_id = $request->genre_id;
 
-                $person->status_id = $request->status_id;
+            $people->birthdate = $request->birthdate;
 
-                $person->phone = $request->phone;
+            $people->phone = $request->phone;
+
+            $people->category_id = $request->category_id;
+
+            $people->start_date = $request->start_date;
 
                 $person->save();
 

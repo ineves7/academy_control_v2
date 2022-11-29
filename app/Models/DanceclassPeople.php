@@ -16,7 +16,9 @@ class DanceclassPeople extends Model
         'danceclass_id',
         'people_id',
         'monthly_payment',
-        'payday'
+        'payday',
+        'person_type'
+
     ];
 }
 

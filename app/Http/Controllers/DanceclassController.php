@@ -3,13 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Danceclass;
-use App\Models\Hour;
 use App\Models\Level;
 use App\Models\People;
 use App\Models\Rhythm;
-use App\Models\Schedule;
-use App\Models\Week_day;
-use App\Models\Weekday;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
@@ -35,45 +31,23 @@ class DanceclassController extends Controller
     }
 
     public function store(
-        Request $request
+        DanceClassRequest $request
     ){
 
-
-
+        try {
             DB::beginTransaction();
 
-            $danceclasses = new Danceclass;
-
-                $danceclasses->level_id = $request->level_id;
-
-                $danceclasses->rhythm_id = $request->rhythm_id;
-
-                $danceclasses->name_danceclass = $request->name_danceclass;
-
-                $danceclasses->private_class = $request->private_class;
-
-
-            $danceclasses->save();
-
-
-            foreach ($request->week_days as $weekday){
-
-                $schedule = new Schedule();
-
-                $schedule->danceclass_id = $danceclasses->id;
-
-                $schedule->week_day = $weekday;
-
-                $schedule->start_time = $request->start_time;
-
-                $schedule->end_time = $request->end_time;
-                
-                $schedule->save();
-            }
+            $this->conservationUnitCreateService->create($conservationUnitData);
             
-
+            flash('Turma criada com sucesso!')->success();
             DB::commit();
-            return redirect()->back();
+            //return redirect()->back();
+        }catch (\Throwable $throwable){
+            dd($throwable);
+            DB::rollBack();
+            flash('Erro Cadastrar!')->error();
+            //return redirect()->back()->withInput();
+        }
     }
 
     public function show( $danceclass_id ){
@@ -106,16 +80,14 @@ class DanceclassController extends Controller
         try {
             $danceclasses = Danceclass::all();
             $rhythms = Rhythm::all();
-            $week_days = Week_day::all();
-            $hours = Hour::all();
+            
+           
             $levels = Level::all();
     
             return view('admin.danceclass.create', 
                 compact(
                 'danceclasses',
                 'rhythms',
-                'week_days',
-                'hours',
                 'levels'
             ));
             

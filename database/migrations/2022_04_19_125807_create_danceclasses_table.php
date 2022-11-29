@@ -15,11 +15,16 @@ return new class extends Migration
     {
         Schema::create('danceclasses', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('level_id')->constrained('levels');
             $table->foreignId('rhythm_id')->constrained('rhythms');
-            $table->foreignId('status_id')->constrained('statuses');
-            $table->foreignId('modality_id')->constrained('modalities');
             $table->string('name_danceclass');
+            $table->enum('modality', ['COLETIVO', 'PARTICULAR', 'EVENTO']);
+            $table->enum('status_danceclass', ['ABERTA', 'PAUSADA', 'FINALIZADA']);
+            $table->enum('level_danceclass', ['INICIANTE', 'INTERMEDIÁRIO', 'AVANÇADO']);
+            $table->enum('week_day', ['SEGUNDA-FEIRA', 'TERÇA-FEIRA', 'QUARTA-FEIRA', 'QUINTA-FEIRA', 'SEXTA-FEIRA', 'SÁBADO', 'DOMINGO']);
+            $table->time('start_hour');
+            $table->time('end_hour');
+            $table->date('first_date');
+            $table->date('end_date')->nullable();
             $table->timestamps();
         });
     }

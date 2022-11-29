@@ -19,6 +19,7 @@ class CreateDanceclassPeopleTable extends Migration
             $table->foreignId('people_id')->constrained('peoples');
             $table->float('monthly_payment', 15, 2);
             $table->string('payday');
+            $table->enum('person_type', ['ALUNO', 'EQUIPE', 'PROFESSOR']);
             $table->timestamps();
         });
     }
@@ -29,7 +30,7 @@ class CreateDanceclassPeopleTable extends Migration
      * @return void
      */
 
-    
+
 
     public function down()
     {

@@ -39,15 +39,16 @@
                                     </div>
                                 </div>
                                 <div class=" col-lg-4">
-                                    <label class=" mb-1 mt-2 form-control-label" for="private_class">Modalidade</label>
+                                    <label class=" mb-1 mt-2 form-control-label" for="modality">Modalidade</label>
                                     <select
 
                                     class="form-control" 
-                                    name="private_class" 
-                                    id="private_class">
+                                    name="modality" 
+                                    id="modality">
 
-                                        <option value="0">Coletivo</option>
-                                        <option value="1">Particular</option>
+                                        <option value="COLETIVO">Coletivo</option>
+                                        <option value="PARTICULAR">Particular</option>
+                                        <option value="EVENTO">Evento</option>
 
                                     </select>
                                 </div>
@@ -67,51 +68,41 @@
                                     required
                                     >
 
-                                    @foreach ($week_days as $week_day)
-                                                    
-                                        <option value="{{$week_day->week_day}}">{{$week_day->week_day}}</option>
-
-                                    @endforeach
+                                        <option value="SEGUNDA-FEIRA">Segunda-Feira</option>
+                                        <option value="TERÇA-FEIRA">Terça-Feira</option>
+                                        <option value="QUARTA-FEIRA">Quarta-Feira</option>
+                                        <option value="QUINTA-FEIRA">Quinta-Feira</option>
+                                        <option value="SEXTA-FEIRA">Sexta-Feira</option>
+                                        <option value="SÁBADO">Sábado</option>
+                                        <option value="DOMINGO">Domingo</option>
 
                                     </select>
 
                                     
                                 </div>
                                 <div class="col-lg-4">
-                                    <label class="mb-1 mt-2 form-control-label" for="start_time">Horário inicio</label>
-                                    <select
-
-                                    class="form-control" 
-                                    name="start_time"
-                                    id="start_time"
-                                    required>
-
-                                    @foreach ($hours as $hour)
-                                                    
-                                        <option value="{{$hour->hour}}">{{$hour->hour}}</option>
-
-                                    @endforeach 
-
-
-                                    </select>
+                                    <label class="mb-1 mt-2 form-control-label" for="start_hour">Horário inicio</label>
+                                    <input 
+                                        type="time" 
+                                        id="start_hour" 
+                                        class="form-control" 
+                                        name="star_hour" 
+                                        placeholder="" 
+                                        autofocus
+                                        required
+                                        />
                                 </div>
                                 <div class="col-lg-4">
-                                    <label class="mb-1 mt-2 form-control-label" for="end_time">Horário De término</label>
-                                    <select
-
-                                    class="form-control" 
-                                    name="end_time"
-                                    id="end_time"
-                                    required
-                                    >
-
-                                    @foreach ($hours as $hour)
-                                                    
-                                        <option value="{{$hour->hour}}">{{$hour->hour}}</option>
-
-                                    @endforeach 
-
-                                    </select>
+                                    <label class="mb-1 mt-2 form-control-label" for="end_hour">Horário De término</label>
+                                    <input 
+                                        type="time" 
+                                        id="end_hour" 
+                                        class="form-control" 
+                                        name="end_hour" 
+                                        placeholder="" 
+                                        autofocus
+                                        required
+                                        />
                                 </div>
                             </div>
 
@@ -124,11 +115,9 @@
                                     name="level_id" 
                                     id="level_id">
 
-                                    @foreach ($levels as $level)
-                                                
-                                        <option value="{{$level->id}}">{{$level->level}}</option>
-
-                                    @endforeach 
+                                        <option value="INICIANTE">Iniciante</option>
+                                        <option value="INTERMEDIÁRIO">Intermediário</option>
+                                        <option value="AVANÇADO">Avançado</option>
 
                                     </select>
                                 </div>

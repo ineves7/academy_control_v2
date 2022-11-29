@@ -19,31 +19,24 @@ class People extends Model
     protected $table = 'peoples';
 
     protected $fillable = [
+        'genre_id',
+        'level_people',
+        'status_people',
         'active',
         'name',
-        'level_id',
-        'genre_id',
+        'last_name',
         'birthdate',
         'phone',
-        'category_id',
+        'email',
         'start_date'
-    ];
 
-    public function level(): BelongsTo
-    {
-        return $this->belongsTo(Level::class, 'level_id');
-    }
+    ];
 
     public function genre(): BelongsTo
     {
         return $this->belongsTo(Genre::class, 'genre_id');
     }
 
-    public function category(): BelongsTo
-    {
-        return $this->belongsTo(Category::class, 'category_id');
-    }
-    
     public function address(): HasOne
     {
         return $this->hasOne(Address::class, 'people_id');

@@ -16,20 +16,23 @@ return new class extends Migration
         Schema::create('peoples', function (Blueprint $table) {
             $table->id();
             $table->foreignId('genre_id')->constrained('genres');
-            $table->foreignId('level_id')->constrained('levels');
-            $table->foreignId('category_id')->constrained('categories');
+            $table->enum('level_people', ['INICIANTE', 'INTERMEDIÁRIO', 'AVANÇADO']);
+            $table->enum('status_people', ['ATIVO', 'INATIVO']);
             $table->boolean('active');
             $table->string('name');
+            $table->string('last_name');
             $table->date('birthdate');
             $table->string('phone');
+            $table->string('email')->unique();
             $table->date('start_date');
+
             $table->timestamps();
             $table->softDeletes();
         });
 
-        
+
     }
-    
+
 
     /**
      * Reverse the migrations.

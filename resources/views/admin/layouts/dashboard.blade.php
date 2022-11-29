@@ -41,11 +41,10 @@
                 <div class="bg-gradient-primary py-2 collapse-inner rounded">
                     <a class="collapse-item text-gray-100" href="{{ route('pessoas.create') }}">Cadastrar Aluno</a>
                     <a class="collapse-item text-gray-100" href="{{ route('pessoas.index') }}">Consultar Alunos</a>
-                    <a class="collapse-item text-gray-100" href="{{ route('categorias.create') }}">Gerenciar Categorias</a>
                 </div>
             </div>
         </li>
-        
+
         <!-- Divider -->
         <hr class="sidebar-divider">
 
@@ -76,8 +75,8 @@
 
 
         <!-- Nav Item - manage rhythms -->
-        <li class="nav-item {{ Nav::isRoute('agenda.index') }}">
-            <a class="nav-link" href="{{ route('agenda.index') }}">
+        <li class="nav-item">
+            <a class="nav-link" href="">
                 <i class="fas fa-fw fa-user"></i>
                 <span>Agenda</span>
             </a>
@@ -302,11 +301,11 @@
                     <!-- Nav Item - User Information -->
                     <li class="nav-item dropdown no-arrow">
                         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            
+
                             <!-- AUTH -->
                             <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{--{{ Auth::user()->name }}--}}</span>
                             <figure class="img-profile rounded-circle avatar font-weight-bold" data-initial="{{--{{ Auth::user()->name[0] }}--}}"></figure>
-                            
+
                         </a>
                         <!-- Dropdown - User Information -->
                         <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">

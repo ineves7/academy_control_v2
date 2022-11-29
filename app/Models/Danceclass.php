@@ -15,28 +15,20 @@ class Danceclass extends Model
     protected $table = 'danceclasses';
 
     protected $fillable = [
-        'name_danceclass',
-        'modality_id',
-        'level_id',
         'rhythm_id',
-        'status_id'
+        'name_danceclass',
+        'modality',
+        'status_danceclass',
+        'level_danceclass',
+        'week_day',
+        'start_hour',
+        'end_hour',
+        'first-date',
+        'end_date'
+
     ];
 
 
-    public function schedules(): HasMany
-    {
-        return $this->hasMany(Schedule::class, 'danceclass_id');
-    }
-
-    public function modality(): BelongsTo
-    {
-        return $this->belongsTo(Modality::class);
-    }
-
-    public function level(): BelongsTo
-    {
-        return $this->belongsTo(Level::class);
-    }
 
     public function rhythm(): BelongsTo
     {

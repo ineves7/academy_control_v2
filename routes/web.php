@@ -24,17 +24,17 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::resource('/pessoas', PeopleRegisterController::class);
+
+
+Route::resource('/pessoas', PeopleController::class);
 
 Route::resource('/turmas', DanceclassController::class);
 
 Route::resource('/ritmos', RhythmController::class);
 
-Route::resource('/categorias', CategoryController::class);
-
 Route::resource('/gerenciar_turmas', DanceclassPeopleController::class);
 
-Route::resource('/agenda', ScheduleController::class);
+
 
 
 Route::get('/profile', 'ProfileController@index')->name('profile');
